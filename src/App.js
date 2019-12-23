@@ -5,13 +5,11 @@ import QuizSelector from "./components/QuizSelector";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import PrivateRoute from "./components/PrivateRoute";
-import { createBrowserHistory } from "history";
 import "./App.css";
 
 function App() {
-  const history = createBrowserHistory();
   return (
-    <Router history={history}>
+    <Router>
       <div className="App">
         <Route exact path="/" component={Landing} />
         <Route path="/Login" component={Login} />

@@ -263,7 +263,7 @@
     width: 31vw;
     padding: 1rem;
     border-radius: 2rem;
-    height: 50vh;
+    height: 60vh;
 }
 
 .ScoreList h1 {
@@ -287,5 +287,15 @@
 .ScoreList li {
     display: flex;
     justify-content: space-between;
+    margin: 0.5rem;
+}
+
+.closebutton {
+    align-self: center;
+    width: 10vw;
+    padding: 1rem;
+    background: black;
+    color: white;
+    border-radius: 2rem;
     margin: 0.5rem;
 }
