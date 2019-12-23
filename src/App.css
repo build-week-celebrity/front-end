@@ -1,0 +1,291 @@
+.App {
+    background-color: black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: 45vw;
+    margin-top: 5vh;
+    box-shadow: grey 3px 3px 3px;
+    border-radius: 3rem;
+}
+
+.top {
+    width: 375px;
+    background: black;
+    color: white;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+    border-radius: 3rem;
+    height: 10vh;
+}
+
+.Header {
+    width: 375px;
+    background: black;
+    color: white;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+    border-radius: 3rem;
+    height: 10vh;
+}
+
+.Logo h1 {
+    margin: 0;
+    color: white;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.Logo h2 {
+    margin: 0;
+    font-size: 0.7rem;
+    color: white;
+    text-align: left;
+}
+
+.login-link {
+    margin-top: 1rem;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.landing {
+    width: 375px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: left;
+}
+
+.landing h2 {
+    text-align: center;
+    margin: 1rem 0rem;
+}
+
+.landing h3 {
+    text-align: left;
+    margin: 1rem 0rem;
+}
+
+.skullsimg {
+    background-image: url(./img/skullsimg.jpg);
+    width: 335px;
+    height: 122px;
+    margin: 1rem 0rem;
+}
+
+.skullsimg p {
+    justify-self: center;
+    display: flex;
+    text-align: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+.list {
+    text-align: left;
+    margin: 1rem 0rem;
+}
+
+.list li {
+    margin: 0.5rem 0rem;
+}
+
+.getstarted {
+    background: white;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    width: 90%;
+    margin: 1rem 0rem;
+    white-space: nowrap;
+}
+
+.getstarted p {
+    color: black;
+    text-decoration: none;
+    font-size: 2.2rem;
+    margin: 1rem;
+    font-weight: bold;
+}
+
+.QuizSelector {
+    color: white;
+    width: 375px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.QuizSelector p {
+    white-space: nowrap;
+}
+
+.QuizType {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+    margin: 0.5rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-color: white;
+    top: 10vh;
+    left: 37vw;
+    position: absolute;
+    width: 20vw;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+    justify-content: space-around;
+    height: 20vh;
+    font-weight: bold;
+}
+
+.login-container button {
+    background: black;
+    color: white;
+    padding: 1rem 3rem;
+    margin: 1rem;
+    border-radius: 1rem;
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-color: white;
+    top: 10vh;
+    left: 32vw;
+    position: absolute;
+    width: 31vw;
+    padding: 2rem;
+    border-radius: 2rem;
+    height: 50vh;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+    justify-content: space-around;
+    height: 50vh;
+    font-weight: bold;
+}
+
+.signup-container button {
+    background: black;
+    color: white;
+    padding: 1rem 3rem;
+    margin: 1rem;
+    border-radius: 1rem;
+}
+
+.signup-field {
+    margin-top: 0.5rem;
+    width: 20vh;
+}
+
+.AdminConsole {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    background-color: white;
+    top: 15vh;
+    left: 35vw;
+    position: absolute;
+    width: 31vw;
+    border-radius: 2rem;
+    height: 50vh;
+}
+
+.AdminConsole h1 {
+    margin-bottom: 0.5rem;
+}
+
+.userlist {
+    margin-top: 0;
+}
+
+.userlist h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.userlist p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.usercard {
+    margin: 0.5rem;
+}
+
+.ScoreList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    background-color: white;
+    top: 15vh;
+    left: 35vw;
+    position: absolute;
+    width: 31vw;
+    padding: 1rem;
+    border-radius: 2rem;
+    height: 50vh;
+}
+
+.ScoreList h1 {
+    margin-bottom: 0.5rem;
+}
+
+.list {
+    margin-top: 0;
+}
+
+.ScoreList h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.ScoreList p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.ScoreList li {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem;
+}
