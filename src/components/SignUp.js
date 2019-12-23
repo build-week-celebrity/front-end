@@ -11,88 +11,103 @@ import { connect } from "react-redux";
 import * as actionCreators from "../actions/actionCreators";
 
 const SignUp = ({ errors, touched, values, userSignup, history }) => {
-  const handleSignupSubmit = e => {
-    console.log("in handleSignupSubmit", values);
+    const handleSignupSubmit = e => {
+        console.log("in handleSignupSubmit", values);
 
-    e.preventDefault();
+        e.preventDefault();
 
-    userSignup(values, history);
-  };
+        userSignup(values, history);
+    };
+    const handleclose = () => {
+        history.goBack();
+    };
 
-  return (
-    <div className="signup-container">
-      <Form className="signup-form" onSubmit={handleSignupSubmit}>
-        <label className="signup-label"> Username</label>
-        <Field
-          className="signup-field"
-          type="text"
-          name="username"
-          placeholder="username"
-        />
-        <small> (Between 2 - 24 characters) </small>
-        {touched.username && errors.username && (
-          <span className="error"> {errors.first_name} </span>
-        )}
-        <label className="signup-label"> Email: </label>
-        <Field
-          className="signup-field"
-          type="email"
-          name="email"
-          placeholder="Email"
-        />
-        {touched.email && errors.email && (
-          <span className="error"> {errors.email} </span>
-        )}
-        <label className="signup-label"> Password: </label>
-        <Field
-          className="signup-field"
-          type="password"
-          name="password"
-          placeholder="Password"
-        />
-        <small> (Must be longer than 4 characters) </small>
-        {touched.password && errors.password && (
-          <span className="error"> {errors.password} </span>
-        )}
-        <button className="btn" type="submit">
-          SIGN UP
-        </button>
-      </Form>
-      <NavLink className="form-link" to="/login">
+    return ( <
+        div className = "signup-container" >
+        <
+        div className = "xclose"
+        onClick = { handleclose } >
+        X <
+        /div> <
+        Form className = "signup-form"
+        onSubmit = { handleSignupSubmit } >
+        <
+        label className = "signup-label" > Username < /label> <
+        Field className = "signup-field"
+        type = "text"
+        name = "username"
+        placeholder = "username" /
+        >
+        <
+        small > (Between 2 - 24 characters) < /small> {
+            touched.username && errors.username && ( <
+                span className = "error" > { errors.first_name } < /span>
+            )
+        } <
+        label className = "signup-label" > Email: < /label> <
+        Field className = "signup-field"
+        type = "email"
+        name = "email"
+        placeholder = "Email" /
+        > {
+            touched.email && errors.email && ( <
+                span className = "error" > { errors.email } < /span>
+            )
+        } <
+        label className = "signup-label" > Password: < /label> <
+        Field className = "signup-field"
+        type = "password"
+        name = "password"
+        placeholder = "Password" /
+        >
+        <
+        small > (Must be longer than 4 characters) < /small> {
+            touched.password && errors.password && ( <
+                span className = "error" > { errors.password } < /span>
+            )
+        } <
+        button className = "btn"
+        type = "submit" >
+        SIGN UP <
+        /button> <
+        /Form> <
+        NavLink className = "form-link"
+        to = "/login" >
         Already have an account ?
-      </NavLink>
-    </div>
-  );
+        <
+        /NavLink> <
+        /div>
+    );
 };
 
 const FormikSignup = withFormik({
-  mapPropsToValues({ username, email, password }) {
-    return {
-      username: username || "",
+    mapPropsToValues({ username, email, password }) {
+        return {
+            username: username || "",
 
-      email: email || "",
+            email: email || "",
 
-      password: password || ""
-    };
-  },
+            password: password || ""
+        };
+    },
 
-  validationSchema: Yup.object().shape({
-    username: Yup.string()
+    validationSchema: Yup.object().shape({
+        username: Yup.string()
 
-      .min(2, "Need at least 2 characters")
+            .min(2, "Need at least 2 characters")
 
-      .max(24, "No more than 24 characters")
+            .max(24, "No more than 24 characters")
 
-      .required("User Name is required"),
+            .required("User Name is required"),
 
-    email: Yup.string().required("User Name is required"),
+        email: Yup.string().required("User Name is required"),
 
-    password: Yup.string()
+        password: Yup.string()
 
-      .min(4, "Need at least 4 characters")
+            .min(4, "Need at least 4 characters")
 
-      .required("Password is required")
-  })
+            .required("Password is required")
+    })
 })(SignUp);
 
 //!!! withFormik validation and Yup Error Messages //

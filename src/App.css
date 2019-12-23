@@ -299,3 +299,15 @@
     border-radius: 2rem;
     margin: 0.5rem;
 }
+
+.xclose {
+    position: absolute;
+    left: 90%;
+    top: 2%;
+    background: black;
+    color: white;
+    border-radius: 0.3rem;
+    width: 1.3vw;
+    text-align: center;
+    font-weight: bold;
+}
