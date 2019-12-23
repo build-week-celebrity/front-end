@@ -20,6 +20,7 @@ function HighScores(props) {
     <Router history={history}>
       <div className="ScoreList">
         <h1> High Scores: </h1>
+
         <div className="list">
           <ul>
             {highScores.map(score => (

@@ -19,6 +19,8 @@ export const combinedReducer = (state = initialState, action) => {
 
     case types.LOGIN:
       return initialState;
+    case types.LOGOUT:
+      return state;
 
     default:
       return state;
