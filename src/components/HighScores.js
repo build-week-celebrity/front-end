@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import QuizSelector from "./QuizSelector";
+import { createBrowserHistory } from "history";
 
 function HighScores(props) {
   const [highScores, setHighScores] = useState([]);
@@ -11,14 +12,14 @@ function HighScores(props) {
       .then(res => setHighScores(res.data));
   }, []);
 
-  const handleclose = props => {
-    props.history.push("/");
+  const handleclose = () => {
+    history.goBack();
   };
+  const history = createBrowserHistory();
   return (
-    <Router>
+    <Router history={history}>
       <div className="ScoreList">
-        <h1>High Scores:</h1>
-        <hr></hr>
+        <h1> High Scores: </h1>
         <div className="list">
           <ul>
             {highScores.map(score => (

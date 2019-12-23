@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import QuizSelector from "./QuizSelector";
-
-function UserList({ history }) {
+import { createBrowserHistory } from "history";
+function UserList() {
   const [regUsers, setRegUsers] = useState([]);
   useEffect(() => {
     axiosWithAuth()
@@ -13,11 +13,14 @@ function UserList({ history }) {
         console.log(res);
       });
   }, []);
+  const handleclose = () => {
+    history.goBack();
+  };
+  const history = createBrowserHistory();
   return (
-    <Router>
+    <Router history={history}>
       <div className="AdminConsole">
         <h1>Registered Users:</h1>
-        <hr></hr>
         <div className="userlist">
           {regUsers.map(user => (
             <div className="usercard" key={user.id}>
@@ -26,9 +29,9 @@ function UserList({ history }) {
             </div>
           ))}
         </div>
-        <Link to="/QuizSelector">
-          <div className="closebutton">Close</div>
-        </Link>
+        <div className="closebutton" onClick={handleclose}>
+          Close
+        </div>
       </div>
       <Route path="/QuizSelector" component={QuizSelector} />
     </Router>
