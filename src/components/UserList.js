@@ -21,8 +21,8 @@ function UserList() {
       <div className="userlist">
         {regUsers.map(user => (
           <div className="usercard" key={user.id}>
-            <h3> {user.username} </h3> <p> {user.email} </p>
-            <p> {user.password} </p>
+            <p>{user.username}</p> <p> {user.email} </p>
+            <p> {user.password}</p>
           </div>
         ))}
       </div>

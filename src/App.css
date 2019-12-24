@@ -204,7 +204,7 @@
 .AdminConsole {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     color: black;
     background-color: white;
     top: 15vh;

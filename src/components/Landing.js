@@ -23,14 +23,12 @@ function Landing() {
           <li>Create custom quizzes to challenge yourself or friends</li>
         </ul>
       </div>
-      <Switch>
-        <Link to="/QuizSelector">
-          <div className="getstarted">
-            <p>Get Started</p>
-          </div>
-        </Link>
-        <Route path="/QuizSelector" component={QuizSelector} />
-      </Switch>
+      <Link to="/QuizSelector">
+        <div className="getstarted">
+          <p>Get Started</p>
+        </div>
+      </Link>
+      <Route path="/QuizSelector" component={QuizSelector} />
     </div>
   );
 }
