@@ -15,11 +15,6 @@ import "./App.css";
 
 const store = createStore(combinedReducer, applyMiddleware(thunk));
 const history = createBrowserHistory();
-const location = history.location;
-const unlisten = history.listen((location, action) => {
-  // location is an object like window.location
-  console.log(action, location.pathname, location.state);
-});
 
 console.log(store);
 

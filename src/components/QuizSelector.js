@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Login from "./Login";
 import SignUp from "./SignUp";
 import HighScores from "./HighScores";
 import PrivateRoute from "./PrivateRoute";
@@ -10,10 +11,7 @@ function QuizSelector() {
   return (
     <Router>
       <div className="QuizSelector">
-        <div className="Header">
-          <Header />
-        </div>
-
+        <Header />
         <h2> Choose A Quiz </h2>
         <div className="QuizType">Easy</div>
         <div className="QuizType">Medium</div>
@@ -29,6 +27,7 @@ function QuizSelector() {
         </p>
       </div>
       <Route path="/SignUp" component={SignUp} />
+      <Route path="/Login" component={Login} />>
       <PrivateRoute path="/HighScores" component={HighScores} />
       <PrivateRoute path="/UserList" component={UserList} />
     </Router>
