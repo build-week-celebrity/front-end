@@ -20,12 +20,13 @@ function HighScores(props) {
     <div className="ScoreList">
       <h1> High Scores: </h1>
 
-      <div className="list">
+      <div className="userscore">
         <ol>
           {highScores.map(score => (
             <li key={score.id}>
+              <p>{score.id}</p>
               <p>{score.username}</p>
-              <p> {score.score} </p>
+              <p>{score.score}</p>
             </li>
           ))}
         </ol>

@@ -13,14 +13,22 @@ function QuizSelector() {
       <div className="QuizSelector">
         <Header />
         <h2> Choose A Quiz </h2>
-        <div className="QuizType">Easy</div>
-        <div className="QuizType">Medium</div>
+        <div className="QuizType">
+          <p>Easy</p>
+        </div>
+        <div className="QuizType">
+          <p>Medium</p>
+        </div>
         <div className="QuizType">Hard</div>
-        <Link to="/UserList">
-          <div className="QuizType">Custom</div>
+        <Link to="/UserList" style={{ textDecoration: "none" }}>
+          <div className="QuizType">
+            <p>Custom</p>
+          </div>
         </Link>
-        <Link to="/HighScores">
-          <div className="QuizType">High Scores</div>
+        <Link to="/HighScores" style={{ textDecoration: "none" }}>
+          <div className="QuizType">
+            <p>High Scores</p>
+          </div>
         </Link>
         <p>
           Dig your own grave & sign up <Link to="/SignUp">Here.</Link>

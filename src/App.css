@@ -130,6 +130,18 @@
     font-size: 2rem;
     width: 20vw;
     text-align: center;
+    border: 2px solid white;
+}
+
+.QuizType:hover {
+    background-color: black;
+    color: white;
+}
+
+.QuizType p {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
 }
 
 .login-container {
@@ -159,10 +171,16 @@
 
 .login-container button {
     background: black;
+    border-radius: 2px solid black;
     color: white;
     padding: 1rem 3rem;
     margin: 1rem;
     border-radius: 1rem;
+}
+
+.login-container button:hover {
+    background: white;
+    color: black;
 }
 
 .signup-container {
@@ -177,6 +195,8 @@
     padding: 2rem;
     border-radius: 2rem;
     height: 30vh;
+    border: 2px solid black;
+    box-shadow: grey 3px 3px 2px 2px;
 }
 
 .signup-container form {
@@ -190,10 +210,16 @@
 
 .signup-container button {
     background: black;
+    border-radius: 2px solid black;
     color: white;
     padding: 1rem 3rem;
     margin: 1rem;
     border-radius: 1rem;
+}
+
+.signup-container button:hover {
+    background: white;
+    color: black;
 }
 
 .signup-field {
@@ -202,17 +228,18 @@
 }
 
 .AdminConsole {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     color: black;
     background-color: white;
     top: 15vh;
-    left: 35vw;
+    left: 37vw;
     position: absolute;
-    width: 31vw;
+    width: 25vw;
     border-radius: 2rem;
-    height: 50vh;
+    height: 45vh;
+    padding: 1rem;
+    border: 2px solid black;
+    box-shadow: grey 3px 3px 2px 2px;
+    text-align: center;
 }
 
 .AdminConsole h1 {
@@ -238,11 +265,6 @@
 }
 
 .ScoreList {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between;
-    align-items: stretch;
     color: black;
     background-color: white;
     top: 15vh;
@@ -250,26 +272,32 @@
     position: absolute;
     width: 25vw;
     border-radius: 2rem;
-    height: 50vh;
+    height: 45vh;
     padding: 1rem;
+    border: 2px solid black;
+    box-shadow: grey 3px 3px 2px 2px;
+    text-align: center;
 }
 
-.ScoreList h3 {
-    margin: 0;
-    font-weight: bold;
+.userscore ol {
+    position: absolute;
+    height: 30vh;
+    top: 10vh;
+    left: -0.5vw;
+    width: 30vw;
 }
 
-.ScoreList p {
-    margin: 0;
-    font-weight: bold;
-}
-
-.ScoreList li {
+.userscore li {
+    width: 20vw;
     display: flex;
     justify-content: space-between;
-    margin: 0.5rem auto;
-    align-content: center;
-    align-items: center;
+    margin: 0rem 1rem;
+    padding: 0rem;
+}
+
+.userscore li p {
+    margin: 0rem;
+    padding: 0rem;
 }
 
 .closebutton {
@@ -284,6 +312,9 @@
     font-weight: bolder;
     cursor: pointer;
     border: 2px solid black;
+    position: absolute;
+    top: 38vh;
+    left: 7vw;
 }
 
 .closebutton:hover {
