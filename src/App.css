@@ -1,36 +1,24 @@
 .App {
     background-color: black;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
-    width: 45vw;
-    margin-top: 5vh;
+    width: 35vw;
+    margin: 5vh 0vh 0vh 0vh;
     box-shadow: grey 3px 3px 3px;
     border-radius: 3rem;
-}
-
-.top {
-    width: 375px;
-    background: black;
-    color: white;
-    display: flex;
-    align-content: space-between;
-    justify-content: space-between;
-    border-radius: 3rem;
-    height: 10vh;
+    padding: 1rem;
 }
 
 .Header {
-    width: 375px;
     background: black;
     color: white;
     display: flex;
     align-content: space-between;
     justify-content: space-between;
     border-radius: 3rem;
-    height: 10vh;
+    width: 30vw;
 }
 
 .Logo h1 {
@@ -56,7 +44,6 @@
 }
 
 .landing {
-    width: 375px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -66,12 +53,10 @@
 }
 
 .landing h2 {
-    text-align: center;
     margin: 1rem 0rem;
 }
 
 .landing h3 {
-    text-align: left;
     margin: 1rem 0rem;
 }
 
@@ -122,11 +107,9 @@
 
 .QuizSelector {
     color: white;
-    width: 375px;
-    min-height: 80vh;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
 }
 
 .QuizSelector p {
@@ -135,6 +118,7 @@
 
 .QuizType {
     display: flex;
+    white-space: nowrap;
     flex-direction: column;
     align-content: center;
     padding: 1rem;
@@ -144,7 +128,20 @@
     font-weight: bold;
     border-radius: 1rem;
     font-size: 2rem;
-    width: 100%;
+    width: 20vw;
+    text-align: center;
+    border: 2px solid white;
+}
+
+.QuizType:hover {
+    background-color: black;
+    color: white;
+}
+
+.QuizType p {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
 }
 
 .login-container {
@@ -152,12 +149,15 @@
     flex-direction: column;
     color: black;
     background-color: white;
-    top: 10vh;
-    left: 37vw;
+    top: 30vh;
+    left: 40vw;
     position: absolute;
-    width: 20vw;
-    padding: 2rem;
+    width: 15vw;
+    height: 20vh;
+    padding: 1rem;
     border-radius: 2rem;
+    border: 2px solid black;
+    box-shadow: grey 3px 3px 2px 2px;
 }
 
 .login-container form {
@@ -166,16 +166,21 @@
     align-content: space-around;
     align-items: center;
     justify-content: space-around;
-    height: 20vh;
     font-weight: bold;
 }
 
 .login-container button {
     background: black;
+    border-radius: 2px solid black;
     color: white;
     padding: 1rem 3rem;
     margin: 1rem;
     border-radius: 1rem;
+}
+
+.login-container button:hover {
+    background: white;
+    color: black;
 }
 
 .signup-container {
@@ -183,13 +188,15 @@
     flex-direction: column;
     color: black;
     background-color: white;
-    top: 10vh;
-    left: 32vw;
+    top: 20vh;
+    left: 37vw;
     position: absolute;
-    width: 31vw;
+    width: 20vw;
     padding: 2rem;
     border-radius: 2rem;
-    height: 50vh;
+    height: 30vh;
+    border: 2px solid black;
+    box-shadow: grey 3px 3px 2px 2px;
 }
 
 .signup-container form {
@@ -198,16 +205,21 @@
     align-content: space-around;
     align-items: center;
     justify-content: space-around;
-    height: 50vh;
     font-weight: bold;
 }
 
 .signup-container button {
     background: black;
+    border-radius: 2px solid black;
     color: white;
     padding: 1rem 3rem;
     margin: 1rem;
     border-radius: 1rem;
+}
+
+.signup-container button:hover {
+    background: white;
+    color: black;
 }
 
 .signup-field {
@@ -216,17 +228,18 @@
 }
 
 .AdminConsole {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     color: black;
     background-color: white;
     top: 15vh;
-    left: 35vw;
+    left: 37vw;
     position: absolute;
-    width: 31vw;
+    width: 25vw;
     border-radius: 2rem;
-    height: 50vh;
+    height: 45vh;
+    padding: 1rem;
+    border: 2px solid black;
+    box-shadow: grey 3px 3px 2px 2px;
+    text-align: center;
 }
 
 .AdminConsole h1 {
@@ -252,42 +265,39 @@
 }
 
 .ScoreList {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     color: black;
     background-color: white;
     top: 15vh;
-    left: 35vw;
+    left: 37vw;
     position: absolute;
-    width: 31vw;
-    padding: 1rem;
+    width: 25vw;
     border-radius: 2rem;
-    height: 60vh;
+    height: 45vh;
+    padding: 1rem;
+    border: 2px solid black;
+    box-shadow: grey 3px 3px 2px 2px;
+    text-align: center;
 }
 
-.ScoreList h1 {
-    margin-bottom: 0.5rem;
+.userscore ol {
+    position: absolute;
+    height: 30vh;
+    top: 7vh;
+    left: -0.5vw;
+    width: 30vw;
 }
 
-.list {
-    margin-top: 0;
-}
-
-.ScoreList h3 {
-    margin: 0;
-    font-weight: bold;
-}
-
-.ScoreList p {
-    margin: 0;
-    font-weight: bold;
-}
-
-.ScoreList li {
+.userscore li {
+    width: 20vw;
     display: flex;
     justify-content: space-between;
-    margin: 0.5rem;
+    margin: 0.3rem 1rem;
+    padding: 0rem;
+}
+
+.userscore li p {
+    margin: 0rem;
+    padding: 0rem;
 }
 
 .closebutton {
@@ -298,16 +308,35 @@
     color: white;
     border-radius: 2rem;
     margin: 0.5rem;
+    text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
+    border: 2px solid black;
+    position: absolute;
+    top: 38vh;
+    left: 7vw;
+}
+
+.closebutton:hover {
+    color: black;
+    background: white;
 }
 
 .xclose {
     position: absolute;
-    left: 90%;
+    left: 80%;
     top: 2%;
     background: black;
     color: white;
+    border: 2px solid black;
     border-radius: 0.3rem;
     width: 1.3vw;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.xclose:hover {
+    color: black;
+    background: white;
 }

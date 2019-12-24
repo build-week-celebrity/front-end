@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import QuizSelector from "./QuizSelector";
 import { createBrowserHistory } from "history";
 
@@ -17,27 +17,26 @@ function HighScores(props) {
   };
   const history = createBrowserHistory();
   return (
-    <Router history={history}>
-      <div className="ScoreList">
-        <h1> High Scores: </h1>
+    <div className="ScoreList">
+      <h1> High Scores: </h1>
 
-        <div className="list">
-          <ul>
-            {highScores.map(score => (
-              <div key={score.id}>
-                <li>
-                  <h3> {score.username} </h3> <p> {score.score} </p>
-                </li>
-              </div>
-            ))}
-          </ul>
-        </div>
-        <div className="closebutton" onClick={handleclose}>
-          Close
-        </div>
+      <div className="userscore">
+        <ol>
+          {highScores.map(score => (
+            <li key={score.id}>
+              <p>{score.id}</p>
+              <p>{score.username}</p>
+              <p>{score.score}</p>
+            </li>
+          ))}
+        </ol>
       </div>
+      <div className="closebutton" onClick={handleclose}>
+        Close
+      </div>
+
       <Route path="/QuizSelector" component={QuizSelector} />
-    </Router>
+    </div>
   );
 }
 export default HighScores;
