@@ -282,7 +282,7 @@
 .userscore ol {
     position: absolute;
     height: 30vh;
-    top: 10vh;
+    top: 7vh;
     left: -0.5vw;
     width: 30vw;
 }
@@ -291,7 +291,7 @@
     width: 20vw;
     display: flex;
     justify-content: space-between;
-    margin: 0rem 1rem;
+    margin: 0.3rem 1rem;
     padding: 0rem;
 }
 
