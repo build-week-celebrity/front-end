@@ -23,7 +23,7 @@ function Landing() {
           <li>Create custom quizzes to challenge yourself or friends</li>
         </ul>
       </div>
-      <Link to="/QuizSelector">
+      <Link to="/QuizSelector" style={{ textDecoration: "none" }}>
         <div className="getstarted">
           <p>Get Started</p>
         </div>
