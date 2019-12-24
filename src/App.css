@@ -103,6 +103,7 @@
     width: 20vw;
     text-align: center;
     border: 2px solid white;
+    cursor: pointer;
 }
 
 .getstarted:hover {
@@ -136,6 +137,7 @@
     width: 20vw;
     text-align: center;
     border: 2px solid white;
+    cursor: pointer;
 }
 
 .QuizType:hover {
@@ -181,6 +183,7 @@
     padding: 1rem 3rem;
     margin: 1rem;
     border-radius: 1rem;
+    cursor: pointer;
 }
 
 .login-container button:hover {
@@ -220,6 +223,7 @@
     padding: 1rem 3rem;
     margin: 1rem;
     border-radius: 1rem;
+    cursor: pointer;
 }
 
 .signup-container button:hover {
