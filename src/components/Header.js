@@ -9,7 +9,12 @@ function Header() {
       <div className="Logo">
         <h1> Dead or Alive </h1> <h2> Do you know who is ? </h2>
       </div>
-      <Link to="/Login"> Log - In </Link>
+      <Link
+        to="/Login"
+        style={{ color: "white", textDecoration: "none", marginTop: "1rem" }}
+      >
+        LogIn
+      </Link>
       <Route path="/SignUp" component={SignUp} />
       <Route path="/Login" component={Login} />
     </div>
