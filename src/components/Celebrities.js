@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Celebrities(props, celebrities) {
+export default function Celebrities(props, ...celebrities) {
   return (
     <div className="celebcard">
       <img
