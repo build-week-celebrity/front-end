@@ -3,14 +3,10 @@ import React from "react";
 export default function Celebrities(props, ...celebrities) {
   return (
     <div className="celebcard">
-      <img
-        className="celebimg"
-        src={celebrities.imageURL}
-        alt={celebrities.name}
-      />
-      <h2>{celebrities.name}</h2>
+      <img className="celebimg" src={props.imageURL} alt={props.name} />
+      <h2>{props.name}</h2>
 
-      {console.log(props.celebrities)}
+      {console.log(props)}
     </div>
   );
 }
