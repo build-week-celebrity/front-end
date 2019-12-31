@@ -4,7 +4,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 export const userSignup = (userData, history) => dispatch => {
   axiosWithAuth()
-    .post("/api/user", userData)
+    .post("/api/users", userData)
 
     .then(({ data }) => {
       dispatch({ type: types.SIGN_UP });
@@ -21,7 +21,7 @@ export const userSignup = (userData, history) => dispatch => {
 
 export const userLogin = (loginData, history) => dispatch => {
   axiosWithAuth()
-    .post("/api/login", loginData)
+    .post("/api/auth", loginData)
 
     .then(({ data }) => {
       dispatch({ type: types.LOGIN });
