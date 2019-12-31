@@ -62,147 +62,227 @@ let highScores = [
 ];
 let celebrities = [
   {
-    name: "Brittany Murphy",
-    dead: 1,
-    image:
-      "https://img2.looper.com/img/gallery/actors-you-may-not-know-are-dead/brittany-murphy-1520437010.jpg",
-    id: 1
+    id: 1,
+
+    name: "Chuck Berry",
+
+    isAlive: 0,
+
+    yearDied: 2017,
+
+    ageDied: 77,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/2/20/Chuck_Berry_1957.jpg"
   },
+
   {
-    name: "Jonathan Brandis",
-    dead: 1,
-    image:
-      "https://img3.looper.com/img/gallery/actors-you-may-not-know-are-dead/jonathan-brandis-1520437010.jpg",
-    id: 2
+    id: 2,
+
+    name: "Paul McCartney",
+
+    isAlive: 1,
+
+    yearDied: null,
+
+    ageDied: null,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/d/d6/Paul_McCartney_in_October_2018.jpg"
   },
+
   {
-    name: "Brad Renfro",
-    dead: 1,
-    image:
-      "https://img4.looper.com/img/gallery/actors-you-may-not-know-are-dead/brad-renfro-1520437010.jpg",
-    id: 3
+    id: 3,
+
+    name: "Adam West",
+
+    isAlive: 0,
+
+    yearDied: 2017,
+
+    ageDied: 88,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/a/a6/Adam_West_by_Gage_Skidmore_3.jpg"
   },
+
   {
-    name: "Lee Thompson Young",
-    dead: 1,
-    image:
-      "https://img1.looper.com/img/gallery/actors-you-may-not-know-are-dead/lee-thompson-young-1520437010.jpg",
-    id: 4
+    id: 4,
+
+    name: "David Hasselhoff",
+
+    isAlive: 1,
+
+    yearDied: null,
+
+    ageDied: null,
+
+    imageURL: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Hoff_3.jpg"
   },
+
   {
-    namer: "Heather O'Rourke",
-    dead: 1,
-    image:
-      "https://img2.looper.com/img/gallery/actors-you-may-not-know-are-dead/heather-orourke-1520437010.jpg",
-    id: 5
+    id: 5,
+
+    name: "Dick Van Dyke",
+
+    isAlive: 1,
+
+    yearDied: null,
+
+    ageDied: null,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/2/20/Mary_Poppins3.jpg"
   },
+
   {
-    name: "Dana Plato",
-    dead: 1,
-    image:
-      "https://img3.looper.com/img/gallery/actors-you-may-not-know-are-dead/dana-plato-1520437010.jpg",
-    id: 6
+    id: 6,
+
+    name: "Roger Moore",
+
+    isAlive: 0,
+
+    yearDied: 2017,
+
+    ageDied: 89,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sir_Roger_Moore_3.jpg"
   },
+
   {
-    name: "Harold Ramis",
-    dead: 1,
-    image:
-      "https://img4.looper.com/img/gallery/actors-you-may-not-know-are-dead/harold-ramis-1520437010.jpg",
-    id: 7
+    id: 7,
+
+    name: "Charlton Heston",
+
+    isAlive: 0,
+
+    yearDied: 2008,
+
+    ageDied: 84,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/9/90/Charlton_Heston_in_Ben_Hur_trailer.jpg"
   },
+
   {
-    name: "Skye McCole Bartusiak",
-    dead: 1,
-    image:
-      "https://img1.looper.com/img/gallery/actors-you-may-not-know-are-dead/skye-mccole-bartusiak-1520437010.jpg",
-    id: 8
+    id: 8,
+
+    name: "Leonard Nimoy",
+
+    isAlive: 0,
+
+    yearDied: 2015,
+
+    ageDied: 83,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/7/7a/Leonard_Nimoy_1975.jpg"
   },
+
   {
-    name: "Dominique Dunne",
-    dead: 1,
-    image:
-      "https://img2.looper.com/img/gallery/actors-you-may-not-know-are-dead/dominique-dunne-1520437010.jpg",
-    id: 9
+    id: 9,
+
+    name: "William Shatner",
+
+    isAlive: 1,
+
+    yearDied: null,
+
+    ageDied: null,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/b/b0/William_Shatner_-_1958.jpg"
   },
+
   {
-    name: "Lisa Robin Kelly",
-    dead: 1,
-    image:
-      "https://img3.looper.com/img/gallery/actors-you-may-not-know-are-dead/lisa-robin-kelly-1520437010.jpg",
-    id: 10
+    id: 10,
+
+    name: "Mary Tyler Moore",
+
+    isAlive: 0,
+
+    yearDied: 2017,
+
+    ageDied: 80,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/en/d/dc/Mary_Tyler_Moore_-_1978.jpg"
   },
+
   {
-    name: "Thuy Trang",
-    dead: 1,
-    image:
-      "https://img4.looper.com/img/gallery/actors-you-may-not-know-are-dead/thuy-trang-1520437010.jpg",
-    id: 11
+    id: 11,
+
+    name: "Lucille Ball",
+
+    isAlive: 0,
+
+    yearDied: 1989,
+
+    ageDied: 77,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/3/38/LDBALL1950s.jpg"
   },
+
   {
-    name: "James Avery",
-    dead: 1,
-    image:
-      "https://img2.looper.com/img/gallery/actors-you-may-not-know-are-dead/james-avery-1520437010.jpg",
-    id: 12
+    id: 12,
+
+    name: "Cindy Williams",
+
+    isAlive: 1,
+
+    yearDied: null,
+
+    ageDied: null,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/b/bd/Cindy_Williams.JPG"
   },
+
   {
-    name: "Chris Penn",
-    dead: 1,
-    image:
-      "https://img4.looper.com/img/gallery/actors-you-may-not-know-are-dead/chris-penn-1520437010.jpg",
-    id: 13
+    id: 13,
+
+    name: "Penny Marshall",
+
+    isAlive: 0,
+
+    yearDied: 2018,
+
+    ageDied: 75,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/4/43/Penny_Marshall_1976.jpg"
   },
+
   {
-    name: "Gary Coleman",
-    dead: 1,
-    image:
-      "https://img3.looper.com/img/gallery/actors-you-may-not-know-are-dead/gary-coleman-1520437010.jpg",
-    id: 14
+    id: 14,
+
+    name: "Goldie Hawn",
+
+    isAlive: 1,
+
+    yearDied: null,
+
+    ageDied: null,
+
+    imageURL:
+      "https://en.wikipedia.org/wiki/Goldie_Hawn#/media/File:Goldie_Hawn_-_1978.jpg"
   },
+
   {
-    name: "Richard Attenborough",
-    dead: 1,
-    image:
-      "https://img2.looper.com/img/gallery/actors-you-may-not-know-are-dead/richard-attenborough-1520437010.jpg",
-    id: 15
-  },
-  {
-    name: "Bernie Mac",
-    dead: 1,
-    image:
-      "https://img1.looper.com/img/gallery/actors-you-may-not-know-are-dead/bernie-mac-1520437010.jpg",
-    id: 16
-  },
-  {
-    name: "Earl Hindman",
-    dead: 1,
-    image:
-      "https://img4.looper.com/img/gallery/actors-you-may-not-know-are-dead/earl-hindman-1520437010.jpg",
-    id: 17
-  },
-  {
-    name: "Richard Bonehill",
-    dead: 1,
-    image: "",
-    id: 18
-  },
-  {
-    name: "Dana Hill",
-    dead: 1,
-    image: "",
-    id: 19
-  },
-  {
-    name: "Taylor Negron",
-    dead: 1,
-    image: "",
-    id: 20
-  },
-  {
-    name: "Michael Clarke Duncan",
-    dead: 1,
-    image: "",
-    id: 21
+    id: 15,
+
+    name: "Ted Danson",
+
+    isAlive: 1,
+
+    yearDied: null,
+
+    ageDied: null,
+
+    imageURL:
+      "https://upload.wikimedia.org/wikipedia/commons/b/bf/Ted_Danson_2008_number_2.jpg"
   }
 ];
 
