@@ -23,8 +23,8 @@ export const combinedReducer = (state = initialState, action) => {
     case types.GET_CELEBS:
       return {
         ...state,
-        transaction: true,
-
+        transaction: false,
+        celebrities: [...state.celebrities],
         error: ""
       };
     case types.GET_CELEBS_SUCCESS:

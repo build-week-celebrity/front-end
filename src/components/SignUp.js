@@ -19,7 +19,7 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
     userSignup(values, history);
   };
   const handleclose = () => {
-    history.goBack();
+    history.go("/QuizSelector");
   };
 
   return (
@@ -37,7 +37,7 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
         />
         <small> (Between 2 - 24 characters) </small>
         {touched.username && errors.username && (
-          <span className="error"> {errors.first_name} </span>
+          <span className="error"> {errors.username} </span>
         )}
         <label className="signup-label"> Email: </label>
         <Field

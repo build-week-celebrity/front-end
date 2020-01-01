@@ -63,7 +63,7 @@ export const getCelebs = () => dispatch => {
     .then(res => {
       dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
 
-      console.log(res);
+      console.log(res.data);
     })
 
     .catch(err => {

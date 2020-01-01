@@ -7,17 +7,22 @@ class QuizEasy extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      celebrities: [],
-      selectedIndex: 0
+      selectedIndex: 0,
+      transaction: false,
+      celebrities: []
     };
     this._TogglePrev = this._TogglePrev.bind(this);
     this._ToggleNext = this._ToggleNext.bind(this);
   }
-  async componentDidMount() {
-    await this.props.getCelebs();
+  componentDidMount() {
+    this.props.getCelebs();
+    this.setState({
+      ...this.state,
+      ...{ transaction: false }
+    });
   }
   _ToggleNext() {
-    if (this.state.selectedIndex === this.state.celebrities.length - 1) return;
+    if (this.state.selectedIndex === this.props.celebrities.length - 1) return;
 
     this.setState(prevState => ({
       selectedIndex: prevState.selectedIndex + 1
@@ -33,7 +38,7 @@ class QuizEasy extends Component {
   }
 
   render() {
-    if (!this.state.transaction) {
+    if (this.state.transaction) {
       return (
         <div className="status">
           <h3>Loading Quiz Data</h3>
@@ -66,7 +71,7 @@ class QuizEasy extends Component {
 const mapStateToProps = state => {
   return {
     celebrities: state.celebrities,
-    getCelebs: state.getCelebs
+    transaction: state.transaction
   };
 };
 export default connect(mapStateToProps, { getCelebs })(QuizEasy);
