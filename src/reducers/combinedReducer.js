@@ -6,7 +6,7 @@ export const initialState = {
   username: user ? user.username : "",
   email: user ? user.email : "",
   password: "",
-  getCelebs: false,
+  transaction: false,
   error: null,
   score: [],
   celebrities: []
@@ -23,7 +23,7 @@ export const combinedReducer = (state = initialState, action) => {
     case types.GET_CELEBS:
       return {
         ...state,
-        getCelebs: false,
+        transaction: true,
 
         error: ""
       };
@@ -31,7 +31,7 @@ export const combinedReducer = (state = initialState, action) => {
       return {
         ...state,
 
-        getCelebs: true,
+        transaction: true,
 
         error: "",
 
@@ -42,7 +42,7 @@ export const combinedReducer = (state = initialState, action) => {
       return {
         ...state,
 
-        getCelebs: false,
+        transaction: false,
 
         error: action.payload
       };
@@ -51,7 +51,9 @@ export const combinedReducer = (state = initialState, action) => {
         ...state
       };
     default:
-      return state;
+      return {
+        ...state
+      };
   }
 };
 

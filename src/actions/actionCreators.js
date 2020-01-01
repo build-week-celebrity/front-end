@@ -1,6 +1,7 @@
 import * as types from "./actionTypes";
 
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import axios from "axios";
 
 export const userSignup = (userData, history) => dispatch => {
   axiosWithAuth()
@@ -56,8 +57,8 @@ export const displayScoreList = scores => {
 export const getCelebs = () => dispatch => {
   dispatch({ type: types.GET_CELEBS });
 
-  axiosWithAuth()
-    .get("/api/celebrities")
+  axios
+    .get("http://localhost:5000/api/celebrities")
 
     .then(res => {
       dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
