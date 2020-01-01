@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Celebrities from "./Celebrities";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-
 export default class QuizEasy extends Component {
   constructor(props) {
     super(props);
@@ -16,15 +15,12 @@ export default class QuizEasy extends Component {
     axiosWithAuth()
       .get("/api/celebrities")
       .then(res => {
-        var celebrities = res.data;
+        console.log(res.data);
         this.setState({
-          celebrities: celebrities,
+          celebrities: res.data,
           selectedIndex: 0
         });
       });
-  }
-  componentWillUnmount() {
-    this.serverRequest.abort();
   }
   _ToggleNext() {
     if (this.state.selectedIndex === this.state.celebrities.length - 1) return;
@@ -46,15 +42,16 @@ export default class QuizEasy extends Component {
     let { selectedIndex, celebrities } = this.state;
     return (
       <div className="Quiz">
+        <div className="xclose">X</div>
         <div className="celebQuiz">
           <Celebrities celebrities={celebrities[selectedIndex]} />
           <div className="answerbox">
             <div className="aliveBtn"> Alive </div>
             <div className="deadBtn"> Dead </div>
-            <button className="toggle toggle--prev" onClick={this._TogglePrev}>
+            <button className="toggle toggle-prev" onClick={this._TogglePrev}>
               Prev
             </button>
-            <button className="toggle toggle--next" onClick={this._ToggleNext}>
+            <button className="toggle toggle-next" onClick={this._ToggleNext}>
               Next
             </button>
           </div>

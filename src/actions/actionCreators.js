@@ -40,3 +40,28 @@ export const userLogout = () => {
 
   return { type: types.LOGOUT };
 };
+
+export const postScoreForm = recData => dispatch => {
+  const stringObjRecData = JSON.stringify(recData);
+  axiosWithAuth()
+    .post(`/api/score/${stringObjRecData}`, { body: stringObjRecData })
+    .then(({ data }) => {
+      dispatch(displayScoreList(data));
+    })
+    .catch(err => console.log(err));
+};
+export const displayScoreList = scores => {
+  return { type: types.GET_SCORES, payload: scores };
+};
+export const displayCelebList = celebrities => {
+  return { type: types.GET_CELEBS, payload: celebrities };
+};
+export const getCelebList = () => dispatch => {
+  axiosWithAuth()
+    .get("/api/celebrities")
+    .then(({ data }) => {
+      dispatch(displayCelebList(data));
+      console.log(data);
+    })
+    .catch(err => console.log(err));
+};
