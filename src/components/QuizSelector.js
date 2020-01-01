@@ -4,6 +4,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import HighScores from "./HighScores";
 import PrivateRoute from "./PrivateRoute";
+import QuizEasy from "./QuizEasy";
 import UserList from "./UserList";
 import Header from "./Header";
 
@@ -13,9 +14,11 @@ function QuizSelector() {
       <div className="QuizSelector">
         <Header />
         <h2> Choose A Quiz </h2>
-        <div className="QuizType">
-          <p>Easy</p>
-        </div>
+        <Link to="/QuizEasy" style={{ textDecoration: "none" }}>
+          <div className="QuizType">
+            <p>Easy</p>
+          </div>
+        </Link>
         <div className="QuizType">
           <p>Medium</p>
         </div>
@@ -35,7 +38,8 @@ function QuizSelector() {
         </p>
       </div>
       <Route path="/SignUp" component={SignUp} />
-      <Route path="/Login" component={Login} />>
+      <Route path="/Login" component={Login} />
+      <Route path="/QuizEasy" component={QuizEasy} />
       <PrivateRoute path="/HighScores" component={HighScores} />
       <PrivateRoute path="/UserList" component={UserList} />
     </Router>

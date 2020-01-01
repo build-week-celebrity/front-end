@@ -5,7 +5,7 @@ function UserList() {
   const [regUsers, setRegUsers] = useState([]);
   useEffect(() => {
     axiosWithAuth()
-      .get("/api/user")
+      .get("/api/users")
       .then(res => {
         setRegUsers(res.data);
         console.log(res);

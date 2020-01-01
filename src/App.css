@@ -349,3 +349,73 @@
     color: black;
     background: white;
 }
+
+.Quiz {
+    color: black;
+    background-color: white;
+    top: 15vh;
+    left: 37vw;
+    position: absolute;
+    width: 25vw;
+    border-radius: 2rem;
+    height: 45vh;
+    padding: 1rem;
+    border: 2px solid black;
+    box-shadow: grey 3px 3px 2px 2px;
+    text-align: center;
+}
+
+.aliveBtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(6, 241, 45, 0.582);
+    border: 2px solid rgba(6, 241, 45, 0.582);
+    font-weight: bolder;
+    color: white;
+    width: 100%;
+    height: 5vh;
+    margin: 0.5rem 0rem;
+}
+
+.aliveBtn:hover {
+    background-color: white;
+    color: rgba(6, 241, 45, 0.582);
+}
+
+.deadBtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(241, 6, 6, 0.61);
+    border: 2px solid rgba(241, 6, 6, 0.61);
+    font-weight: bolder;
+    color: white;
+    width: 100%;
+    height: 5vh;
+    margin: 0.5rem 0rem;
+}
+
+.deadBtn:hover {
+    background-color: white;
+    color: rgba(241, 6, 6, 0.61);
+}
+
+.celebQuiz {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+}
+
+.celebcard {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.celebimg {
+    width: 10vw;
+}
