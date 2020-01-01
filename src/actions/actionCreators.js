@@ -53,15 +53,19 @@ export const postScoreForm = recData => dispatch => {
 export const displayScoreList = scores => {
   return { type: types.GET_SCORES, payload: scores };
 };
-export const displayCelebList = celebrities => {
-  return { type: types.GET_CELEBS, payload: celebrities };
-};
-export const getCelebList = () => dispatch => {
+export const getCelebs = () => dispatch => {
+  dispatch({ type: types.GET_CELEBS });
+
   axiosWithAuth()
     .get("/api/celebrities")
-    .then(({ data }) => {
-      dispatch(displayCelebList(data));
-      console.log(data);
+
+    .then(res => {
+      dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
+
+      console.log(res);
     })
-    .catch(err => console.log(err));
+
+    .catch(err => {
+      dispatch({ type: types.GET_CELEBS_FAILED, payload: err.res });
+    });
 };
