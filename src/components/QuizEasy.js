@@ -8,18 +8,13 @@ class QuizEasy extends Component {
     super(props);
     this.state = {
       selectedIndex: 0,
-      transaction: false,
-      celebrities: []
+      transaction: false
     };
     this._TogglePrev = this._TogglePrev.bind(this);
     this._ToggleNext = this._ToggleNext.bind(this);
   }
   componentDidMount() {
     this.props.getCelebs();
-    this.setState({
-      ...this.state,
-      ...{ transaction: false }
-    });
   }
   _ToggleNext() {
     if (this.state.selectedIndex === this.props.celebrities.length - 1) return;
@@ -38,7 +33,7 @@ class QuizEasy extends Component {
   }
 
   render() {
-    if (this.state.transaction) {
+    if (!this.props.transaction) {
       return (
         <div className="status">
           <h3>Loading Quiz Data</h3>

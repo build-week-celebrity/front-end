@@ -349,9 +349,11 @@
     color: black;
     background: white;
 }
-.status{
-    color:white;
+
+.status {
+    color: white;
 }
+
 .Quiz {
     color: black;
     background-color: white;
@@ -414,10 +416,13 @@
 .celebcard {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
     margin: 0.5rem;
 }
 
 .celebimg {
-    width: 10vw;
+    width: 15vw;
+    height: 20vh;
 }
