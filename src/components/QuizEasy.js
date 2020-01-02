@@ -1,29 +1,23 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getCelebs } from "../actions/actionCreators";
 import Celebrities from "./Celebrities";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-export default class QuizEasy extends Component {
+
+class QuizEasy extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      celebrities: [],
-      selectedIndex: 0
+      selectedIndex: 0,
+      transaction: false
     };
     this._TogglePrev = this._TogglePrev.bind(this);
     this._ToggleNext = this._ToggleNext.bind(this);
   }
   componentDidMount() {
-    axiosWithAuth()
-      .get("/api/celebrities")
-      .then(res => {
-        console.log(res.data);
-        this.setState({
-          celebrities: res.data,
-          selectedIndex: 0
-        });
-      });
+    this.props.getCelebs();
   }
   _ToggleNext() {
-    if (this.state.selectedIndex === this.state.celebrities.length - 1) return;
+    if (this.state.selectedIndex === this.props.celebrities.length - 1) return;
 
     this.setState(prevState => ({
       selectedIndex: prevState.selectedIndex + 1
@@ -39,12 +33,21 @@ export default class QuizEasy extends Component {
   }
 
   render() {
-    let { selectedIndex, celebrities } = this.state;
+    if (!this.props.transaction) {
+      return (
+        <div className="status">
+          <h3>Loading Quiz Data</h3>
+        </div>
+      );
+    }
     return (
       <div className="Quiz">
         <div className="xclose">X</div>
         <div className="celebQuiz">
-          <Celebrities celebrities={celebrities[selectedIndex]} />
+          <Celebrities
+            celebrities={this.props.celebrities[this.state.selectedIndex]}
+          />
+          {console.log(this.props.celebrities)}
           <div className="answerbox">
             <div className="aliveBtn"> Alive </div>
             <div className="deadBtn"> Dead </div>
@@ -60,3 +63,10 @@ export default class QuizEasy extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    celebrities: state.celebrities,
+    transaction: state.transaction
+  };
+};
+export default connect(mapStateToProps, { getCelebs })(QuizEasy);

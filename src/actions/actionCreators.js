@@ -1,6 +1,7 @@
 import * as types from "./actionTypes";
 
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import axios from "axios";
 
 export const userSignup = (userData, history) => dispatch => {
   axiosWithAuth()
@@ -53,15 +54,19 @@ export const postScoreForm = recData => dispatch => {
 export const displayScoreList = scores => {
   return { type: types.GET_SCORES, payload: scores };
 };
-export const displayCelebList = celebrities => {
-  return { type: types.GET_CELEBS, payload: celebrities };
-};
-export const getCelebList = () => dispatch => {
-  axiosWithAuth()
-    .get("/api/celebrities")
-    .then(({ data }) => {
-      dispatch(displayCelebList(data));
-      console.log(data);
+export const getCelebs = () => dispatch => {
+  dispatch({ type: types.GET_CELEBS });
+
+  axios
+    .get("http://localhost:5000/api/celebrities")
+
+    .then(res => {
+      dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
+
+      console.log(res.data);
     })
-    .catch(err => console.log(err));
+
+    .catch(err => {
+      dispatch({ type: types.GET_CELEBS_FAILED, payload: err.res });
+    });
 };
