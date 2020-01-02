@@ -13,8 +13,17 @@ function Header() {
         to="/Login"
         style={{ color: "white", textDecoration: "none", marginTop: "1rem" }}
       >
-        LogIn
+        <p>LogIn</p>
       </Link>
+      <div className="secret">
+        <Link to="/UserList" style={{ textDecoration: "none" }}>
+          <em>
+            <small>
+              <p>.</p>
+            </small>
+          </em>
+        </Link>
+      </div>
       <Route path="/SignUp" component={SignUp} />
       <Route path="/Login" component={Login} />
     </div>
