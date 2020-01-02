@@ -31,7 +31,6 @@ class QuizEasy extends Component {
       selectedIndex: prevState.selectedIndex - 1
     }));
   }
-
   render() {
     if (!this.props.transaction) {
       return (
@@ -42,7 +41,6 @@ class QuizEasy extends Component {
     }
     return (
       <div className="Quiz">
-        <div className="xclose">X</div>
         <div className="celebQuiz">
           <Celebrities
             celebrities={this.props.celebrities[this.state.selectedIndex]}
