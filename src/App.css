@@ -355,17 +355,16 @@
 }
 
 .Quiz {
-    color: black;
-    background-color: white;
-    top: 15vh;
+    background-color: black;
+    color: white;
+    top: 13vh;
     left: 33.5vw;
     position: absolute;
     width: 30vw;
     border-radius: 2rem;
-    height: 51vh;
+    height: 55vh;
     padding: 1rem;
     border: 2px solid black;
-    box-shadow: grey 3px 3px 2px 2px;
     text-align: center;
 }
 
@@ -377,9 +376,14 @@
     border: 2px solid rgba(6, 241, 45, 0.582);
     font-weight: bolder;
     color: white;
-    width: 100%;
+    width: 87%;
     height: 5vh;
     margin: 0.5rem 0rem;
+    position: absolute;
+    bottom: 6.5vh;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    border-radius: 1rem;
 }
 
 .aliveBtn:hover {
@@ -395,9 +399,14 @@
     border: 2px solid rgba(241, 6, 6, 0.61);
     font-weight: bolder;
     color: white;
-    width: 100%;
+    width: 87%;
     height: 5vh;
     margin: 0.5rem 0rem;
+    position: absolute;
+    bottom: 0.5vh;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    border-radius: 1rem;
 }
 
 .deadBtn:hover {
@@ -406,7 +415,8 @@
 }
 
 .celebQuiz {
-    background-color: white;
+    background-color: black;
+    color: white;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -418,11 +428,35 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 0.5rem;
     margin: 0.5rem;
 }
 
+.stats {
+    width: 80%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+}
+
+.stats p {
+    font-weight: bolder;
+}
+
 .celebimg {
-    width: 15vw;
-    height: 20vh;
+    width: 25vw;
+    height: 35vh;
+    position: absolute;
+    top: 5vh;
+}
+
+.celebname {
+    width: 90%;
+    position: absolute;
+    bottom: 12vh;
+    text-align: center;
 }

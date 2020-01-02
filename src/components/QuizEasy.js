@@ -47,14 +47,14 @@ class QuizEasy extends Component {
           />
           {console.log(this.props.celebrities)}
           <div className="answerbox">
-            <div className="aliveBtn"> Alive </div>
-            <div className="deadBtn"> Dead </div>
-            <button className="toggle toggle-prev" onClick={this._TogglePrev}>
-              Prev
-            </button>
-            <button className="toggle toggle-next" onClick={this._ToggleNext}>
-              Next
-            </button>
+            <div className="aliveBtn" onClick={this._ToggleNext}>
+              {" "}
+              Alive{" "}
+            </div>
+            <div className="deadBtn" onClick={this._TogglePrev}>
+              {" "}
+              Dead{" "}
+            </div>
           </div>
         </div>
       </div>
