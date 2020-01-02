@@ -19,7 +19,7 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
     userSignup(values, history);
   };
   const handleclose = () => {
-    history.go("/QuizSelector");
+    history.goBack();
   };
 
   return (
