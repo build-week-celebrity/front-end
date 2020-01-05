@@ -13,18 +13,14 @@ import "./App.css";
 const store = createStore(combinedReducer, applyMiddleware(thunk));
 const history = createBrowserHistory();
 
-ReactDOM.render( <
-    Provider store = { store } >
-    <
-    Router history = { history } >
-    <
-    div className = "background" >
-    <
-    App / >
-    <
-    /div> <
-    /Router> <
-    /Provider>,
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={history}>
+      <div className="background">
+        <App />
+      </div>
+    </Router>
+  </Provider>,
 
-    document.getElementById("root")
+  document.getElementById("root")
 );
