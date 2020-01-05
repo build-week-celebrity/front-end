@@ -1,5 +1,4 @@
 import * as types from "./actionTypes";
-
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import axios from "axios";
 
@@ -13,8 +12,6 @@ export const userSignup = (userData, history) => dispatch => {
       localStorage.setItem("token", data.token);
 
       history.push("/QuizSelector");
-      console.log(userData);
-      console.log({ data });
     })
 
     .catch(err => console.log(err));
@@ -28,7 +25,6 @@ export const userLogin = (loginData, history) => dispatch => {
       dispatch({ type: types.LOGIN });
 
       localStorage.setItem("token", data.payload);
-      console.log({ data });
 
       history.push("/QuizSelector");
     })
@@ -62,8 +58,6 @@ export const getCelebs = () => dispatch => {
 
     .then(res => {
       dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
-
-      console.log(res.data);
     })
 
     .catch(err => {

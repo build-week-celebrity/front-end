@@ -23,11 +23,9 @@ function QuizSelector() {
           <p>Medium</p>
         </div>
         <div className="QuizType">Hard</div>
-
         <div className="QuizType">
           <p>Custom</p>
         </div>
-
         <Link to="/HighScores" style={{ textDecoration: "none" }}>
           <div className="QuizType">
             <p>High Scores</p>
