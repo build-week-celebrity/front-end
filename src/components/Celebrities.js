@@ -14,8 +14,6 @@ export default function Celebrities({ celebrities }) {
         alt={celebrities.name}
       />
       <h2 className="celebname">{celebrities.name}</h2>
-
-      {console.log(celebrities)}
     </div>
   );
 }

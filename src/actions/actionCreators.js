@@ -1,11 +1,10 @@
 import * as types from "./actionTypes";
-
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import axios from "axios";
 
 export const userSignup = (userData, history) => dispatch => {
   axiosWithAuth()
-    .post("/api/users", userData)
+    .post("/api/auth/register", userData)
 
     .then(({ data }) => {
       dispatch({ type: types.SIGN_UP });
@@ -13,8 +12,6 @@ export const userSignup = (userData, history) => dispatch => {
       localStorage.setItem("token", data.token);
 
       history.push("/QuizSelector");
-      console.log(userData);
-      console.log({ data });
     })
 
     .catch(err => console.log(err));
@@ -22,13 +19,12 @@ export const userSignup = (userData, history) => dispatch => {
 
 export const userLogin = (loginData, history) => dispatch => {
   axiosWithAuth()
-    .post("/api/auth", loginData)
+    .post("https://celeb-doa-api.herokuapp.com/api/auth/", loginData)
 
     .then(({ data }) => {
       dispatch({ type: types.LOGIN });
 
       localStorage.setItem("token", data.payload);
-      console.log({ data });
 
       history.push("/QuizSelector");
     })
@@ -58,12 +54,10 @@ export const getCelebs = () => dispatch => {
   dispatch({ type: types.GET_CELEBS });
 
   axios
-    .get("http://localhost:5000/api/celebrities")
+    .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
 
     .then(res => {
       dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
-
-      console.log(res.data);
     })
 
     .catch(err => {

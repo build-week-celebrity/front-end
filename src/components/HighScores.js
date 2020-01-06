@@ -34,7 +34,6 @@ function HighScores(props) {
       <div className="closebutton" onClick={handleclose}>
         Close
       </div>
-
       <Route path="/QuizSelector" component={QuizSelector} />
     </div>
   );

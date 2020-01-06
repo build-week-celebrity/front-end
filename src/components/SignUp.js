@@ -1,21 +1,13 @@
 import React from "react";
-
 import { Form, Field, withFormik } from "formik";
-
 import * as Yup from "yup";
-
 import { NavLink } from "react-router-dom";
-
 import { connect } from "react-redux";
-
 import * as actionCreators from "../actions/actionCreators";
 
 const SignUp = ({ errors, touched, values, userSignup, history }) => {
   const handleSignupSubmit = e => {
-    console.log("in handleSignupSubmit", values);
-
     e.preventDefault();
-
     userSignup(values, history);
   };
   const handleclose = () => {
@@ -75,32 +67,21 @@ const FormikSignup = withFormik({
   mapPropsToValues({ username, email, password }) {
     return {
       username: username || "",
-
       email: email || "",
-
       password: password || ""
     };
   },
 
   validationSchema: Yup.object().shape({
     username: Yup.string()
-
-      .min(2, "Need at least 2 characters")
-
-      .max(24, "No more than 24 characters")
-
+      .min(2, "Minimum 2 Charecters")
+      .max(10, "Maximum 10 Charecters")
       .required("User Name is required"),
-
-    email: Yup.string().required("User Name is required"),
-
+    email: Yup.string().required("Email is required"),
     password: Yup.string()
-
-      .min(4, "Need at least 4 characters")
-
+      .min(4, "Minimum 4")
       .required("Password is required")
   })
 })(SignUp);
-
-//!!! withFormik validation and Yup Error Messages //
 
 export default connect(state => state, actionCreators)(FormikSignup);
