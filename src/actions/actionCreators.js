@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const userSignup = (userData, history) => dispatch => {
   axiosWithAuth()
-    .post("/api/auth/register", userData)
+    .post("/auth/register", userData)
 
     .then(({ data }) => {
       dispatch({ type: types.SIGN_UP });
@@ -19,7 +19,7 @@ export const userSignup = (userData, history) => dispatch => {
 
 export const userLogin = (loginData, history) => dispatch => {
   axiosWithAuth()
-    .post("https://celeb-doa-api.herokuapp.com/api/auth/", loginData)
+    .post("/auth/", loginData)
 
     .then(({ data }) => {
       dispatch({ type: types.LOGIN });
