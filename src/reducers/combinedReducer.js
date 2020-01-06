@@ -6,17 +6,18 @@ export const initialState = {
   username: user ? user.username : "",
   email: user ? user.email : "",
   password: "",
+  loggedUser: [],
   transaction: false,
   error: null,
   score: [],
   celebrities: [],
-  users:[]
+  users: []
 };
 
 export const combinedReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SIGN_UP:
-      return state;
+      return { ...state, loggedUser: action.payload };
     case types.LOGIN:
       return initialState;
     case types.LOGOUT:
@@ -48,10 +49,8 @@ export const combinedReducer = (state = initialState, action) => {
         error: action.payload
       };
     case types.POST_SCORE_FORM:
-      return {
-        ...state
-      };
-      case types.GET_USERS:
+      return {};
+    case types.GET_USERS:
       return {
         ...state,
         transaction: false,
@@ -61,20 +60,15 @@ export const combinedReducer = (state = initialState, action) => {
     case types.GET_USERS_SUCCESS:
       return {
         ...state,
-
         transaction: true,
-
-        error: "",
-
-        users: [...state.users, ...action.payload]
+        users: [...state.users, ...action.payload],
+        error: ""
       };
 
     case types.GET_USERS_FAILED:
       return {
         ...state,
-
         transaction: false,
-
         error: action.payload
       };
     default:

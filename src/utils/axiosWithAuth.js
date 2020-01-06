@@ -5,7 +5,7 @@ export const axiosWithAuth = () => {
     return axios.create({
         baseURL: "https://celeb-doa-api.herokuapp.com/api",
         headers: {
-            Authorization: token
+            token: token
         }
     });
 };

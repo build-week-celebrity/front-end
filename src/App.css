@@ -11,6 +11,10 @@
     padding: 1rem;
 }
 
+.error {
+    color: red;
+}
+
 .Header {
     background: black;
     color: white;

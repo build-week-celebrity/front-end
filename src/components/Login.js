@@ -19,16 +19,19 @@ const Login = ({ errors, touched, values, userLogin, history }) => {
         X
       </div>
       <Form className="login-form" onSubmit={handleLoginSubmit}>
-        <label className="login-label"> Email: </label>
-        <Field
-          className="login-field"
-          type="username"
-          name="username"
-          placeholder="Email"
-        />
         {touched.username && errors.username && (
           <span className="error"> {errors.username} </span>
         )}
+        {touched.password && errors.password && (
+          <span className="error"> {errors.password} </span>
+        )}
+        <label className="login-label"> Username: </label>
+        <Field
+          className="login-field"
+          type="text"
+          name="username"
+          placeholder="Username"
+        />
         <label className="login-label"> Password: </label>
         <Field
           className="login-field"
@@ -36,9 +39,6 @@ const Login = ({ errors, touched, values, userLogin, history }) => {
           name="password"
           placeholder="Password"
         />
-        {touched.password && errors.password && (
-          <span className="error"> {errors.password} </span>
-        )}
         <button> Login </button>
       </Form>
       <NavLink className="form-link" to="/signup">
@@ -58,7 +58,6 @@ const FormikLogin = withFormik({
 
   validationSchema: Yup.object().shape({
     username: Yup.string().required("Username is required"),
-
     password: Yup.string().required("Password is required")
   })
 })(Login);

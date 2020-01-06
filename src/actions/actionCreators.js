@@ -22,6 +22,7 @@ export const userLogin = (loginData, history) => dispatch => {
         .post("/auth/login", loginData)
 
     .then(({ data }) => {
+        console.log(data);
         dispatch({ type: types.LOGIN });
 
         localStorage.setItem("token", data.payload);
@@ -38,20 +39,12 @@ export const userLogout = () => {
     return { type: types.LOGOUT };
 };
 
-export const postScoreForm = recData => dispatch => {
-    const stringObjRecData = JSON.stringify(recData);
-    axiosWithAuth()
-        .post(`/api/score/${stringObjRecData}`, { body: stringObjRecData })
-        .then(({ data }) => {
-            dispatch(displayUserList(data));
-        })
-        .catch(err => console.log(err));
-};
 export const displayUserList = loginData => dispatch => {
     dispatch({ type: types.GET_USERS });
     axiosWithAuth()
         .get("/users", loginData)
         .then(res => {
+            console.log(res);
             dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });
         })
         .catch(err => {

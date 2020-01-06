@@ -5,14 +5,15 @@ class UserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedIndex: 0,
       transaction: false
     };
   }
   componentDidMount() {
     this.props.displayUserList();
   }
-
+  handleclose = () => {
+    this.props.history.goBack();
+  };
   render() {
     if (!this.props.transaction) {
       return (
@@ -27,12 +28,11 @@ class UserList extends Component {
         <div className="userlist">
           {this.props.users.map(user => (
             <div className="usercard" key={user.id}>
-              <p>{user.username}</p> <p> {user.email} </p>
-              <p> {user.password}</p>
+              <p>{user.username}</p>
             </div>
           ))}
         </div>
-        <div className="closebutton" onClick="">
+        <div className="closebutton" onClick={this.handleclose}>
           Close
         </div>
       </div>
