@@ -57,6 +57,7 @@ export const getCelebs = () => dispatch => {
     axios
         .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
 
+
     .then(res => {
         dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
     })
