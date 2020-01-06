@@ -20,6 +20,15 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
         X
       </div>
       <Form className="signup-form" onSubmit={handleSignupSubmit}>
+        {touched.username && errors.username && (
+          <span className="error"> {errors.username} </span>
+        )}
+        {touched.email && errors.email && (
+          <span className="error"> {errors.email} </span>
+        )}
+        {touched.password && errors.password && (
+          <span className="error"> {errors.password} </span>
+        )}
         <label className="signup-label"> Username </label>
         <Field
           className="signup-field"
@@ -27,10 +36,9 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
           name="username"
           placeholder="username"
         />
-        <small> (Between 2 - 24 characters) </small>
-        {touched.username && errors.username && (
-          <span className="error"> {errors.username} </span>
-        )}
+        <small>
+          <em> (Between 2 - 10 characters) </em>
+        </small>
         <label className="signup-label"> Email: </label>
         <Field
           className="signup-field"
@@ -38,9 +46,6 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
           name="email"
           placeholder="Email"
         />
-        {touched.email && errors.email && (
-          <span className="error"> {errors.email} </span>
-        )}
         <label className="signup-label"> Password: </label>
         <Field
           className="signup-field"
@@ -48,26 +53,25 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
           name="password"
           placeholder="Password"
         />
-        <small> (Must be longer than 4 characters) </small>
-        {touched.password && errors.password && (
-          <span className="error"> {errors.password} </span>
-        )}
+        <small>
+          <em> (Must be longer than 4 characters) </em>
+        </small>
         <button className="btn" type="submit">
           SIGN UP
         </button>
       </Form>
       <NavLink className="form-link" to="/login">
-        Already have an account ?
+        <em> Already have an account ? </em>
       </NavLink>
     </div>
   );
 };
 
 const FormikSignup = withFormik({
-  mapPropsToValues({ username, email, password }) {
+  mapPropsToValues({ email, username, password }) {
     return {
-      username: username || "",
       email: email || "",
+      username: username || "",
       password: password || ""
     };
   },
@@ -76,8 +80,10 @@ const FormikSignup = withFormik({
     username: Yup.string()
       .min(2, "Minimum 2 Charecters")
       .max(10, "Maximum 10 Charecters")
-      .required("User Name is required"),
-    email: Yup.string().required("Email is required"),
+      .required("Username is required"),
+    email: Yup.string()
+      .email("Must Be Valid Email Format")
+      .required("Email is required"),
     password: Yup.string()
       .min(4, "Minimum 4")
       .required("Password is required")

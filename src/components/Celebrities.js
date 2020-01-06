@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Celebrities({ celebrities }) {
+export default function Celebrities({ celebrities, props }) {
   return (
     <div className="celebcard" id={celebrities.id}>
       <div className="stats">

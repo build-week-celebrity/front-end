@@ -3,64 +3,65 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import axios from "axios";
 
 export const userSignup = (userData, history) => dispatch => {
-  axiosWithAuth()
-    .post("/auth/register", userData)
+    axiosWithAuth()
+        .post("/auth/register", userData)
 
     .then(({ data }) => {
-      dispatch({ type: types.SIGN_UP });
+        dispatch({ type: types.SIGN_UP });
 
-      localStorage.setItem("token", data.token);
+        localStorage.setItem("token", data.token);
 
-      history.push("/QuizSelector");
+        history.push("/QuizSelector");
     })
 
     .catch(err => console.log(err));
 };
 
 export const userLogin = (loginData, history) => dispatch => {
-  axiosWithAuth()
-    .post("/auth/login", loginData)
+    axiosWithAuth()
+        .post("/auth/login", loginData)
 
     .then(({ data }) => {
-      dispatch({ type: types.LOGIN });
+        console.log(data);
+        dispatch({ type: types.LOGIN });
 
-      localStorage.setItem("token", data.payload);
+        localStorage.setItem("token", data.payload);
 
-      history.push("/QuizSelector");
+        history.push("/QuizSelector");
     })
 
     .catch(err => console.log(err));
 };
 
 export const userLogout = () => {
-  localStorage.removeItem("token");
+    localStorage.removeItem("token");
 
-  return { type: types.LOGOUT };
+    return { type: types.LOGOUT };
 };
 
-export const postScoreForm = recData => dispatch => {
-  const stringObjRecData = JSON.stringify(recData);
-  axiosWithAuth()
-    .post(`/api/score/${stringObjRecData}`, { body: stringObjRecData })
-    .then(({ data }) => {
-      dispatch(displayScoreList(data));
-    })
-    .catch(err => console.log(err));
-};
-export const displayScoreList = scores => {
-  return { type: types.GET_SCORES, payload: scores };
+export const displayUserList = loginData => dispatch => {
+    dispatch({ type: types.GET_USERS });
+    axiosWithAuth()
+        .get("/users", loginData)
+        .then(res => {
+            console.log(res);
+            dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });
+        })
+        .catch(err => {
+            dispatch({ type: types.GET_USERS_FAILED, payload: err.res });
+        });
 };
 export const getCelebs = () => dispatch => {
-  dispatch({ type: types.GET_CELEBS });
+    dispatch({ type: types.GET_CELEBS });
 
-  axios
-    .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
+    axios
+        .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
 
     .then(res => {
-      dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
+        dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
     })
 
     .catch(err => {
-      dispatch({ type: types.GET_CELEBS_FAILED, payload: err.res });
+        dispatch({ type: types.GET_CELEBS_FAILED, payload: err.res });
     });
 };
