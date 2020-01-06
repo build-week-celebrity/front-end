@@ -39,10 +39,11 @@ export const userLogout = () => {
     return { type: types.LOGOUT };
 };
 
-export const displayUserList = loginData => dispatch => {
+export const displayUserList = token => dispatch => {
     dispatch({ type: types.GET_USERS });
+    console.log(token);
     axiosWithAuth()
-        .get("/users", loginData)
+        .get("/users", token)
         .then(res => {
             console.log(res);
             dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });

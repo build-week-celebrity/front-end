@@ -5,11 +5,12 @@ class UserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      transaction: false
+      transaction: false,
+      token: this.props.token
     };
   }
   componentDidMount() {
-    this.props.displayUserList();
+    this.props.displayUserList(this.props.token);
   }
   handleclose = () => {
     this.props.history.goBack();
