@@ -11,14 +11,21 @@
     padding: 1rem;
 }
 
+@media screen and (max-width: 500px) {
+    .App {
+        width: 20rem;
+        margin: 1rem;
+    }
+}
+
 .Header {
     background: black;
     color: white;
     display: flex;
     align-content: space-between;
-    justify-content: space-between;
+    justify-content: space-around;
     border-radius: 3rem;
-    width: 28vw;
+    width: 100%;
 }
 
 .Logo h1 {
@@ -62,9 +69,9 @@
 
 .skullsimg {
     background-image: url(./img/skullsimg.jpg);
-    width: 335px;
-    height: 122px;
-    margin: 1rem 0rem;
+    width: 70%;
+    height: auto;
+    margin: 1rem 0;
 }
 
 .skullsimg p {
@@ -100,7 +107,7 @@
     font-weight: bold;
     border-radius: 1rem;
     font-size: 1.5rem;
-    width: 20vw;
+    width: 100%;
     text-align: center;
     border: 2px solid white;
     cursor: pointer;
@@ -113,13 +120,15 @@
 
 .QuizSelector {
     color: white;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.QuizSelector p {
+.QuizSelector {
     white-space: nowrap;
+
 }
 
 .QuizType {
@@ -134,7 +143,7 @@
     font-weight: bold;
     border-radius: 1rem;
     font-size: 2rem;
-    width: 20vw;
+    width: 60%;
     text-align: center;
     border: 2px solid white;
     cursor: pointer;
@@ -149,6 +158,10 @@
     text-decoration: none;
     padding: 0;
     margin: 0;
+}
+
+#HighScore {
+    width: 80%
 }
 
 .login-container {
@@ -178,7 +191,7 @@
 
 .login-container button {
     background: black;
-    border-radius: 2px solid black;
+    border: 2px solid black;
     color: white;
     padding: 1rem 3rem;
     margin: 1rem;
@@ -218,7 +231,7 @@
 
 .signup-container button {
     background: black;
-    border-radius: 2px solid black;
+    border: 2px solid black;
     color: white;
     padding: 1rem 3rem;
     margin: 1rem;
@@ -357,15 +370,23 @@
 .Quiz {
     background-color: black;
     color: white;
-    top: 13vh;
-    left: 34vw;
+    /*top: 13vh;*/
+    /*left: 34vw;*/
     position: absolute;
-    width: 29vw;
+    width: 30vw;
     border-radius: 2rem;
     height: 55vh;
     padding: 1rem;
     border: 2px solid black;
     text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    .Quiz {
+        width: 20rem;
+        height: 87%;
+        margin: 0;
+    }
 }
 
 .aliveBtn {
@@ -450,8 +471,8 @@
 }
 
 .celebimg {
-    width: 27vw;
-    height: 33vh;
+    width: 80%;
+    /*height: 33vh;*/
     position: absolute;
     top: 7vh;
 }

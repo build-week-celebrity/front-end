@@ -14,11 +14,9 @@ function QuizSelector() {
       <div className="QuizSelector">
         <Header />
         <h2> Choose A Quiz </h2>
-        <Link to="/QuizEasy" style={{ textDecoration: "none" }}>
           <div className="QuizType">
-            <p>Easy</p>
+              <Link to="/QuizEasy" style={{ textDecoration: "none", color: "black" }}>Easy</Link>
           </div>
-        </Link>
         <div className="QuizType">
           <p>Medium</p>
         </div>
@@ -29,7 +27,7 @@ function QuizSelector() {
         </div>
 
         <Link to="/HighScores" style={{ textDecoration: "none" }}>
-          <div className="QuizType">
+          <div className="QuizType" id={"HighScore"}>
             <p>High Scores</p>
           </div>
         </Link>
