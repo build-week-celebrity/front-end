@@ -3,7 +3,7 @@ import axios from "axios";
 export const axiosWithAuth = () => {
   const token = localStorage.getItem("token");
   return axios.create({
-    baseURL: "http://ctfjmg01:5000",
+    baseURL: "https://celeb-doa-api.herokuapp.com/api/",
     headers: {
       Authorization: token
     }

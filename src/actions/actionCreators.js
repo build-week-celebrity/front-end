@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const userSignup = (userData, history) => dispatch => {
   axiosWithAuth()
-    .post("/api/users", userData)
+    .post("/api/auth/register", userData)
 
     .then(({ data }) => {
       dispatch({ type: types.SIGN_UP });
@@ -54,7 +54,7 @@ export const getCelebs = () => dispatch => {
   dispatch({ type: types.GET_CELEBS });
 
   axios
-    .get("http://localhost:5000/api/celebrities")
+    .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
 
     .then(res => {
       dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
