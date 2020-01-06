@@ -19,7 +19,7 @@ export const userSignup = (userData, history) => dispatch => {
 
 export const userLogin = (loginData, history) => dispatch => {
   axiosWithAuth()
-    .post("/auth/", loginData)
+    .post("/auth/login", loginData)
 
     .then(({ data }) => {
       dispatch({ type: types.LOGIN });
