@@ -9,7 +9,8 @@ export const initialState = {
   transaction: false,
   error: null,
   score: [],
-  celebrities: []
+  celebrities: [],
+  users:[]
 };
 
 export const combinedReducer = (state = initialState, action) => {
@@ -49,6 +50,32 @@ export const combinedReducer = (state = initialState, action) => {
     case types.POST_SCORE_FORM:
       return {
         ...state
+      };
+      case types.GET_USERS:
+      return {
+        ...state,
+        transaction: false,
+        users: [...state.users],
+        error: ""
+      };
+    case types.GET_USERS_SUCCESS:
+      return {
+        ...state,
+
+        transaction: true,
+
+        error: "",
+
+        users: [...state.users, ...action.payload]
+      };
+
+    case types.GET_USERS_FAILED:
+      return {
+        ...state,
+
+        transaction: false,
+
+        error: action.payload
       };
     default:
       return {
