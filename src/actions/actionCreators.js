@@ -19,7 +19,7 @@ export const userSignup = (userData, history) => dispatch => {
 
 export const userLogin = (loginData, history) => dispatch => {
   axiosWithAuth()
-    .post("/api/auth", loginData)
+    .post("https://celeb-doa-api.herokuapp.com/api/auth/", loginData)
 
     .then(({ data }) => {
       dispatch({ type: types.LOGIN });

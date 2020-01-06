@@ -22,7 +22,7 @@ const Login = ({ errors, touched, values, userLogin, history }) => {
         <label className="login-label"> Email: </label>
         <Field
           className="login-field"
-          type="email"
+          type="username"
           name="username"
           placeholder="Email"
         />
@@ -57,11 +57,7 @@ const FormikLogin = withFormik({
   },
 
   validationSchema: Yup.object().shape({
-    username: Yup.string()
-
-      .required("Username is required")
-
-      .email("Must provide a valid Email Address"),
+    username: Yup.string().required("Username is required"),
 
     password: Yup.string().required("Password is required")
   })
