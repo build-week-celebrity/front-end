@@ -17,6 +17,7 @@ class QuizEasy extends Component {
   componentDidMount() {
     this.props.getCelebs();
   }
+
   _ToggleNext() {
     if (this.state.selectedIndex === this.props.celebrities.length - 1) return;
 
@@ -24,7 +25,6 @@ class QuizEasy extends Component {
       selectedIndex: prevState.selectedIndex + 1
     }));
   }
-
   _TogglePrev() {
     if (this.state.selectedIndex === 0) return;
 
@@ -32,6 +32,16 @@ class QuizEasy extends Component {
       selectedIndex: prevState.selectedIndex - 1
     }));
   }
+  shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
   render() {
     if (!this.props.transaction) {
       return (
@@ -40,6 +50,7 @@ class QuizEasy extends Component {
         </div>
       );
     }
+    this.shuffle(this.props.celebrities);
     return (
       <div className="Quiz">
         <div className="stats">
