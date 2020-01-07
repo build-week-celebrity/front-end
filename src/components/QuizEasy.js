@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCelebs } from "../actions/actionCreators";
+import Timer from "./Timer";
 import Celebrities from "./Celebrities";
 
 class QuizEasy extends Component {
@@ -41,6 +42,17 @@ class QuizEasy extends Component {
     }
     return (
       <div className="Quiz">
+        <div className="stats">
+          <p> Easy </p>
+          <p>
+            Time:
+            <Timer />
+          </p>
+          <p>
+            {" "}
+            {this.state.selectedIndex + 1}/ {this.props.celebrities.length}
+          </p>
+        </div>
         <div className="celebQuiz">
           <Celebrities
             celebrities={this.props.celebrities[this.state.selectedIndex]}
