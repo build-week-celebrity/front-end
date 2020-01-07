@@ -16,6 +16,9 @@
         width: 20rem;
         margin: 1rem;
     }
+  
+.error {
+    color: red;
 }
 
 .Header {

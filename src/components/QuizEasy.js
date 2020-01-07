@@ -45,7 +45,6 @@ class QuizEasy extends Component {
           <Celebrities
             celebrities={this.props.celebrities[this.state.selectedIndex]}
           />
-          {console.log(this.props.celebrities)}
           <div className="answerbox">
             <div className="deadBtn" onClick={this._TogglePrev}>
               Dead

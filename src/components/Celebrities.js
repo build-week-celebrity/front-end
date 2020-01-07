@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Celebrities({ celebrities }) {
+export default function Celebrities({ celebrities, props }) {
   return (
     <div className="celebcard" id={celebrities.id}>
       <div className="stats">
@@ -14,8 +14,6 @@ export default function Celebrities({ celebrities }) {
         alt={celebrities.name}
       />
       <h2 className="celebname">{celebrities.name}</h2>
-
-      {console.log(celebrities)}
     </div>
   );
 }
