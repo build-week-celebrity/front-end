@@ -52,6 +52,17 @@ export const displayUserList = () => dispatch => {
             dispatch({ type: types.GET_USERS_FAILED, payload: err.res });
         });
 };
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
 export const getCelebs = () => dispatch => {
     dispatch({ type: types.GET_CELEBS });
 
@@ -59,7 +70,8 @@ export const getCelebs = () => dispatch => {
         .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
 
     .then(res => {
-        dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
+        const newRes = shuffle(res.data);
+        dispatch({ type: types.GET_CELEBS_SUCCESS, payload: newRes });
     })
 
     .catch(err => {
