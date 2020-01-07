@@ -11,12 +11,6 @@
     padding: 1rem;
 }
 
-@media screen and (max-width: 500px) {
-    .App {
-        width: 20rem;
-        margin: 1rem;
-    }
-  
 .error {
     color: red;
 }
@@ -110,7 +104,7 @@
     font-weight: bold;
     border-radius: 1rem;
     font-size: 1.5rem;
-    width: 100%;
+    width: 20vw;
     text-align: center;
     border: 2px solid white;
     cursor: pointer;
@@ -127,25 +121,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.Logo h1 {
-    margin: 0;
-    color: white;
     white-space: nowrap;
-    text-align: left;
-}
-
-.Logo h2 {
-    margin: 0;
-    font-size: 0.7rem;
-    color: white;
-    text-align: left;
-}
-
-.QuizSelector {
-    white-space: nowrap;
-
 }
 
 .QuizType {
@@ -160,7 +136,7 @@
     font-weight: bold;
     border-radius: 1rem;
     font-size: 2rem;
-    width: 60%;
+    width: 20vw;
     text-align: center;
     border: 2px solid white;
     cursor: pointer;
@@ -175,10 +151,15 @@
     text-decoration: none;
     padding: 0;
     margin: 0;
+    color: black;
 }
 
-#HighScore {
-    width: 80%
+.QuizType p:hover {
+    color: white;
+}
+
+.HighScore {
+    width: 80%;
 }
 
 .login-container {
@@ -387,23 +368,15 @@
 .Quiz {
     background-color: black;
     color: white;
-    /*top: 13vh;*/
-    /*left: 34vw;*/
+    top: 13vh;
+    left: 34vw;
     position: absolute;
-    width: 30vw;
+    width: 29vw;
     border-radius: 2rem;
     height: 55vh;
     padding: 1rem;
     border: 2px solid black;
     text-align: center;
-}
-
-@media screen and (max-width: 500px) {
-    .Quiz {
-        width: 20rem;
-        height: 87%;
-        margin: 0;
-    }
 }
 
 .aliveBtn {
@@ -477,10 +450,11 @@
     background-color: black;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     position: absolute;
     top: 0;
+    left: 3vw;
 }
 
 .stats p {
@@ -489,7 +463,7 @@
 
 .celebimg {
     width: 80%;
-    /*height: 33vh;*/
+    height: 33vh;
     position: absolute;
     top: 7vh;
 }
