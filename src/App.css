@@ -11,6 +11,13 @@
     padding: 1rem;
 }
 
+@media screen and (max-width: 500px) {
+    .App {
+        width: 20rem;
+        margin: 1rem;
+    }
+}
+
 .error {
     color: red;
 }
@@ -373,7 +380,7 @@
     position: absolute;
     width: 29vw;
     border-radius: 2rem;
-    height: 55vh;
+    height: 72%;
     padding: 1rem;
     border: 2px solid black;
     text-align: center;
