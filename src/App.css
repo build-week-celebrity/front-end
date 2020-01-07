@@ -468,12 +468,6 @@
     top: 7vh;
 }
 
-.secret {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
 .celebname {
     width: 90%;
     position: absolute;
