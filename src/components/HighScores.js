@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getHighScores } from "../actions/actionCreators";
-import { BrowserRouter as Route } from "react-router-dom";
-import QuizSelector from "./QuizSelector";
 class HighScores extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scorestransaction: false
+      scorestransaction: false,
+      highscores: []
     };
   }
   handleclose = () => {
     this.props.history.goBack();
+    this.setState((this.highscores = []));
   };
   componentDidMount() {
     this.props.getHighScores();
@@ -29,7 +29,6 @@ class HighScores extends Component {
       <div className="ScoreList">
         <h1> High Scores: </h1>
         <div className="userscore">
-          {console.log(this.props.highscores)}
           <ol>
             {this.props.highscores.map((score, index) => (
               <li key={index}>
@@ -42,7 +41,6 @@ class HighScores extends Component {
         <div className="closebutton" onClick={this.handleclose}>
           Close
         </div>
-        <Route path="/QuizSelector" component={QuizSelector} />
       </div>
     );
   }

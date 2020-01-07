@@ -21,13 +21,13 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
       </div>
       <Form className="signup-form" onSubmit={handleSignupSubmit}>
         {touched.username && errors.username && (
-          <span className="error"> {errors.username} </span>
+          <div className="error"> {errors.username} </div>
         )}
         {touched.email && errors.email && (
-          <span className="error"> {errors.email} </span>
+          <div className="error"> {errors.email} </div>
         )}
         {touched.password && errors.password && (
-          <span className="error"> {errors.password} </span>
+          <div className="error"> {errors.password} </div>
         )}
         <label className="signup-label"> Username </label>
         <Field

@@ -9,7 +9,6 @@ class UserList extends Component {
     };
   }
   componentDidMount() {
-    this.setState();
     this.props.displayUserList();
   }
   handleclose = () => {

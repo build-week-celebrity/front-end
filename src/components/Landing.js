@@ -3,7 +3,7 @@ import { BrowserRouter as Route, Link } from "react-router-dom";
 import QuizSelector from "./QuizSelector";
 import Header from "./Header";
 
-function Landing(...props) {
+function Landing() {
   return (
     <div className="landing">
       <Header />
@@ -27,7 +27,6 @@ function Landing(...props) {
           <p> Get Started </p>
         </div>
       </Link>
-      <Route path="/QuizSelector" component={QuizSelector} />
     </div>
   );
 }
