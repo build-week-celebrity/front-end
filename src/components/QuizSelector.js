@@ -9,25 +9,26 @@ import UserList from "./UserList";
 import Header from "./Header";
 
 function QuizSelector() {
-  function setDifficulty() {
-      QuizEasy.props.difficulty = "easy"
-    }
   return (
     <Router>
       <div className="QuizSelector">
         <Header />
         <h2> Choose A Quiz </h2>
-              <Link to="/QuizEasy" style={{ textDecoration: "none", color: "black" }}>
-                  <button onClick={setDifficulty} className="QuizType">
+              <Link to={{pathname:"/quizeasy", state:{difficulty:"easy"}}} style={{ textDecoration: "none",}}>
+                  <button className="QuizType">
                   Easy
                   </button>
               </Link>
-            <Link to="/QuizEasy" style={{ textDecoration: "none", color: "black" }}>
-                <button onClick={() => <QuizEasy difficulty={"medium"}/>} className="QuizType">
+            <Link to={{pathname:"/quizeasy", state:{difficulty:"medium"}}} style={{ textDecoration: "none"}}>
+                <button className="QuizType">
                 Medium
                 </button>
             </Link>
-        <div className="QuizType">Hard</div>
+          <Link to={{pathname:"/quizeasy", state:{difficulty:"hard"}}} style={{ textDecoration: "none"}}>
+              <button className="QuizType">
+                 Hard
+              </button>
+          </Link>
         <div className="QuizType">
           <p>Custom</p>
         </div>

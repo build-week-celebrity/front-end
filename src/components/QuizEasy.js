@@ -39,15 +39,15 @@ class QuizEasy extends Component {
         </div>
       );
     }
-    // const celebs = this.props.celebrities.filter((object) => object["difficulty"].includes(this.props.difficulty));
-    // console.log(this.props.celebrities.filter((el) => {return el.difficulty === this.props.difficulty}));
-    // console.log(this.props.celebrities);
-    console.log(this.props.difficulty);
+
+    console.log(this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}));
+
+    console.log(this.props.location.state.difficulty);
     return (
       <div className="Quiz">
         <div className="celebQuiz">
           <Celebrities
-            celebrities={this.props.celebrities[this.state.selectedIndex]}
+            celebrities={this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty})[this.state.selectedIndex]}
           />
           <div className="answerbox">
             <div className="deadBtn" onClick={this._TogglePrev}>
