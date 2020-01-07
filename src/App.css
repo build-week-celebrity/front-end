@@ -16,6 +16,7 @@
         width: 20rem;
         margin: 1rem;
     }
+}
   
 .error {
     color: red;
@@ -392,7 +393,7 @@
     position: absolute;
     width: 30vw;
     border-radius: 2rem;
-    height: 60%;
+    height: 72%;
     padding: 1rem;
     border: 2px solid black;
     text-align: center;
