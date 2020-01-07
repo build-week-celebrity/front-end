@@ -7,11 +7,13 @@ export const initialState = {
     email: user ? user.email : "",
     password: "",
     token: [],
+    users: [],
     transaction: false,
+    scorestransaction: false,
     error: null,
     score: [],
     celebrities: [],
-    users: []
+    highscores: []
 };
 
 export const combinedReducer = (state = initialState, action) => {
@@ -45,6 +47,32 @@ export const combinedReducer = (state = initialState, action) => {
                 ...state,
 
                 transaction: false,
+
+                error: action.payload
+            };
+        case types.GET_HIGHSCORES:
+            return {
+                ...state,
+                scorestransaction: false,
+                highscores: [...state.highscores],
+                error: ""
+            };
+        case types.GET_HIGHSCORES_SUCCESS:
+            return {
+                ...state,
+
+                scorestransaction: true,
+
+                error: "",
+
+                highscores: [...state.highscores, ...action.payload]
+            };
+
+        case types.GET_HIGHSCORES_FAILED:
+            return {
+                ...state,
+
+                scorestransaction: false,
 
                 error: action.payload
             };
