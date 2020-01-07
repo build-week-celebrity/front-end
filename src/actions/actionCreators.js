@@ -24,8 +24,8 @@ export const userLogin = (loginData, history) => dispatch => {
             res =>
             dispatch({ type: types.LOGIN }) &
             localStorage.setItem("token", res.data.token) &
-            console.log("token in state:", res.data.token) &
-            console.log("token in localStorage:", localStorage.getItem("token")) &
+            //console.log("token in state:", res.data.token) &
+            //console.log("token in localStorage:", localStorage.getItem("token")) &
             history.push("/QuizSelector")
         )
 
@@ -40,13 +40,12 @@ export const userLogout = () => {
 
 export const displayUserList = () => dispatch => {
     const token = localStorage.getItem("token");
-    console.log("token in displayusers get:", token);
+    // console.log("token in displayusers get:", token);
     dispatch({ type: types.GET_USERS });
 
     axiosWithAuth()
         .get("/users", token)
         .then(res => {
-            console.log(res);
             dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });
         })
         .catch(err => {
