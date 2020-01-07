@@ -67,3 +67,15 @@ export const getCelebs = () => dispatch => {
         dispatch({ type: types.GET_CELEBS_FAILED, payload: err.res });
     });
 };
+
+export const getHighScores = () => dispatch => {
+    dispatch({ type: types.GET_HIGHSCORES });
+    axios
+        .get("https://celeb-doa-api.herokuapp.com/api/highscores/")
+        .then(res => {
+            dispatch({ type: types.GET_HIGHSCORES_SUCCESS, payload: res.data });
+        })
+        .catch(err => {
+            dispatch({ type: types.GET_HIGHSCORES_FAILED, payload: err.res });
+        });
+};
