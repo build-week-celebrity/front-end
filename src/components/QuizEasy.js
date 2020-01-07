@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCelebs } from "../actions/actionCreators";
 import Celebrities from "./Celebrities";
+import Timer from "./Timer";
 
 class QuizEasy extends Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class QuizEasy extends Component {
     return (
       <div className="Quiz">
         <div className="celebQuiz">
+        <Timer/>
           <Celebrities
             celebrities={this.props.celebrities[this.state.selectedIndex]}
           />
@@ -64,4 +66,4 @@ const mapStateToProps = state => {
     transaction: state.transaction
   };
 };
-export default connect(mapStateToProps, { getCelebs })(QuizEasy);
+export default connect(mapStateToProps, {getCelebs})(QuizEasy);
