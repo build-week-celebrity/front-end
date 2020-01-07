@@ -14,18 +14,28 @@ function QuizSelector() {
       <div className="QuizSelector">
         <Header />
         <h2> Choose A Quiz </h2>
-          <div className="QuizType">
-              <Link to="/QuizEasy" style={{ textDecoration: "none", color: "black" }}>Easy</Link>
-          </div>
+        <div className="QuizType">
+          <Link
+            to="/QuizEasy"
+            style={{
+              textDecoration: "none",
+              color: "black"
+            }}
+          >
+            <p>Easy</p>
+          </Link>
+        </div>
         <div className="QuizType">
           <p>Medium</p>
         </div>
-        <div className="QuizType">Hard</div>
+        <div className="QuizType">
+          <p>Hard</p>
+        </div>
         <div className="QuizType">
           <p>Custom</p>
         </div>
         <Link to="/HighScores" style={{ textDecoration: "none" }}>
-          <div className="QuizType" id={"HighScore"}>
+          <div className="QuizType">
             <p>High Scores</p>
           </div>
         </Link>
@@ -36,7 +46,7 @@ function QuizSelector() {
       <Route path="/SignUp" component={SignUp} />
       <Route path="/Login" component={Login} />
       <Route path="/QuizEasy" component={QuizEasy} />
-      <PrivateRoute path="/HighScores" component={HighScores} />
+      <Route path="/HighScores" component={HighScores} />
       <PrivateRoute path="/UserList" component={UserList} />
     </Router>
   );

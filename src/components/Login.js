@@ -20,10 +20,10 @@ const Login = ({ errors, touched, values, userLogin, history }) => {
       </div>
       <Form className="login-form" onSubmit={handleLoginSubmit}>
         {touched.username && errors.username && (
-          <span className="error"> {errors.username} </span>
+          <div className="error"> {errors.username} </div>
         )}
         {touched.password && errors.password && (
-          <span className="error"> {errors.password} </span>
+          <div className="error"> {errors.password} </div>
         )}
         <label className="login-label"> Username: </label>
         <Field

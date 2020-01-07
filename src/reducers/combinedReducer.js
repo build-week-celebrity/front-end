@@ -6,20 +6,22 @@ export const initialState = {
   username: user ? user.username : "",
   email: user ? user.email : "",
   password: "",
-  loggedUser: [],
+  token: [],
+  users: [],
   transaction: false,
+  scorestransaction: false,
   error: null,
   score: [],
   celebrities: [],
-  users: []
+  highscores: []
 };
 
 export const combinedReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SIGN_UP:
-      return { ...state, loggedUser: action.payload };
+      return { ...state, token: action.payload };
     case types.LOGIN:
-      return initialState;
+      return { ...state, error: "", token: action.payload };
     case types.LOGOUT:
       return state;
     case types.GET_CELEBS:
@@ -45,6 +47,32 @@ export const combinedReducer = (state = initialState, action) => {
         ...state,
 
         transaction: false,
+
+        error: action.payload
+      };
+    case types.GET_HIGHSCORES:
+      return {
+        ...state,
+        scorestransaction: false,
+        highscores: [...state.highscores],
+        error: ""
+      };
+    case types.GET_HIGHSCORES_SUCCESS:
+      return {
+        ...state,
+
+        scorestransaction: true,
+
+        error: "",
+
+        highscores: [...state.highscores, ...action.payload]
+      };
+
+    case types.GET_HIGHSCORES_FAILED:
+      return {
+        ...state,
+
+        scorestransaction: false,
 
         error: action.payload
       };
