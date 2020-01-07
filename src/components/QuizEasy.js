@@ -39,6 +39,10 @@ class QuizEasy extends Component {
         </div>
       );
     }
+    // const celebs = this.props.celebrities.filter((object) => object["difficulty"].includes(this.props.difficulty));
+    // console.log(this.props.celebrities.filter((el) => {return el.difficulty === this.props.difficulty}));
+    // console.log(this.props.celebrities);
+    console.log(this.props.difficulty);
     return (
       <div className="Quiz">
         <div className="celebQuiz">
