@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { getCelebs } from "../actions/actionCreators";
 import Timer from "./Timer";
 import Celebrities from "./Celebrities";
-import Timer from "./Timer";
 
 class QuizEasy extends Component {
   constructor(props) {
@@ -50,12 +49,11 @@ class QuizEasy extends Component {
             <Timer />
           </p>
           <p>
-            {" "}
             {this.state.selectedIndex + 1}/ {this.props.celebrities.length}
           </p>
         </div>
         <div className="celebQuiz">
-        <Timer/>
+          <Timer />
           <Celebrities
             celebrities={this.props.celebrities[this.state.selectedIndex]}
           />
@@ -78,4 +76,4 @@ const mapStateToProps = state => {
     transaction: state.transaction
   };
 };
-export default connect(mapStateToProps, {getCelebs})(QuizEasy);
+export default connect(mapStateToProps, { getCelebs })(QuizEasy);
