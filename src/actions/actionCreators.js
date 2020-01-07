@@ -6,10 +6,10 @@ export const userSignup = (userData, history) => dispatch => {
     axiosWithAuth()
         .post("/auth/register", userData)
 
-    .then(({ res }) => {
+    .then(({ data }) => {
         dispatch({ type: types.SIGN_UP });
 
-        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("token", data.token);
 
         history.push("/QuizSelector");
     })
@@ -58,7 +58,6 @@ export const getCelebs = () => dispatch => {
 
     axios
         .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
-
 
     .then(res => {
         dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
