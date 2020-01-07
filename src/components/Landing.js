@@ -27,6 +27,7 @@ function Landing() {
           <p> Get Started </p>
         </div>
       </Link>
+      <Route path="/QuizSelector" component={QuizSelector} />
     </div>
   );
 }
