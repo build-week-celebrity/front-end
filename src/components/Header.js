@@ -3,7 +3,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import { BrowserRouter as Route, Link } from "react-router-dom";
 
-function Header() {
+function Header(...props) {
   return (
     <div className="Header">
       <div className="Logo">
@@ -17,6 +17,7 @@ function Header() {
       </Link>
       <div className="secret">
         <Link to="/UserList" style={{ textDecoration: "none" }}>
+          {props.token}
           <em>
             <small>
               <p>.</p>

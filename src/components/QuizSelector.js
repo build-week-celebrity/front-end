@@ -8,7 +8,7 @@ import QuizEasy from "./QuizEasy";
 import UserList from "./UserList";
 import Header from "./Header";
 
-function QuizSelector() {
+function QuizSelector({ token, userdata, ...props }) {
   return (
     <Router>
       <div className="QuizSelector">

@@ -6,10 +6,10 @@ export const userSignup = (userData, history) => dispatch => {
     axiosWithAuth()
         .post("/auth/register", userData)
 
-    .then(({ data }) => {
+    .then(({ res }) => {
         dispatch({ type: types.SIGN_UP });
 
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("token", res.data.token);
 
         history.push("/QuizSelector");
     })
@@ -20,15 +20,14 @@ export const userSignup = (userData, history) => dispatch => {
 export const userLogin = (loginData, history) => dispatch => {
     axiosWithAuth()
         .post("/auth/login", loginData)
-
-    .then(({ data }) => {
-        console.log(data);
-        dispatch({ type: types.LOGIN });
-
-        localStorage.setItem("token", data.payload);
-
-        history.push("/QuizSelector");
-    })
+        .then(
+            res =>
+            dispatch({ type: types.LOGIN }) &
+            localStorage.setItem("token", res.data.token) &
+            console.log("token in state:", res.data.token) &
+            console.log("token in localStorage:", localStorage.getItem("token")) &
+            history.push("/QuizSelector")
+        )
 
     .catch(err => console.log(err));
 };
@@ -39,9 +38,11 @@ export const userLogout = () => {
     return { type: types.LOGOUT };
 };
 
-export const displayUserList = token => dispatch => {
+export const displayUserList = () => dispatch => {
+    const token = localStorage.getItem("token");
+    console.log("token in displayusers get:", token);
     dispatch({ type: types.GET_USERS });
-    console.log(token);
+
     axiosWithAuth()
         .get("/users", token)
         .then(res => {

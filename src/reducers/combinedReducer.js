@@ -19,7 +19,7 @@ export const combinedReducer = (state = initialState, action) => {
         case types.SIGN_UP:
             return {...state, token: action.payload };
         case types.LOGIN:
-            return {...state, token: action.payload };
+            return {...state, error: "", token: action.payload };
         case types.LOGOUT:
             return state;
         case types.GET_CELEBS:
