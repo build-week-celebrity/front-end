@@ -1,6 +1,5 @@
 import React from "react";
 import Login from "./Login";
-import SignUp from "./SignUp";
 import { BrowserRouter as Route, Link } from "react-router-dom";
 
 function Header() {
@@ -15,16 +14,6 @@ function Header() {
       >
         <p>LogIn</p>
       </Link>
-      <div className="secret">
-        <Link to="/UserList" style={{ textDecoration: "none" }}>
-          <em>
-            <small>
-              <p>.</p>
-            </small>
-          </em>
-        </Link>
-      </div>
-      <Route path="/SignUp" component={SignUp} />
       <Route path="/Login" component={Login} />
     </div>
   );

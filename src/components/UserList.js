@@ -5,7 +5,7 @@ class UserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      transaction: false
+      usertransaction: false
     };
   }
   componentDidMount() {
@@ -32,7 +32,7 @@ class UserList extends Component {
             </div>
           ))}
         </div>
-        <div className="closebutton" onClick={this.handleclose}>
+        <div className="closebutton" onClick={this.handleclose()}>
           Close
         </div>
       </div>
@@ -41,7 +41,7 @@ class UserList extends Component {
 }
 const mapStateToProps = state => {
   return {
-    celebrities: state.celebrities,
+    users: state.users,
     transaction: state.transaction
   };
 };

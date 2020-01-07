@@ -20,15 +20,14 @@ export const userSignup = (userData, history) => dispatch => {
 export const userLogin = (loginData, history) => dispatch => {
     axiosWithAuth()
         .post("/auth/login", loginData)
-
-    .then(({ data }) => {
-        console.log(data);
-        dispatch({ type: types.LOGIN });
-
-        localStorage.setItem("token", data.payload);
-
-        history.push("/QuizSelector");
-    })
+        .then(
+            res =>
+            dispatch({ type: types.LOGIN }) &
+            localStorage.setItem("token", res.data.token) &
+            //console.log("token in state:", res.data.token) &
+            //console.log("token in localStorage:", localStorage.getItem("token")) &
+            history.push("/QuizSelector")
+        )
 
     .catch(err => console.log(err));
 };
@@ -39,12 +38,14 @@ export const userLogout = () => {
     return { type: types.LOGOUT };
 };
 
-export const displayUserList = loginData => dispatch => {
+export const displayUserList = () => dispatch => {
+    const token = localStorage.getItem("token");
+    // console.log("token in displayusers get:", token);
     dispatch({ type: types.GET_USERS });
+
     axiosWithAuth()
-        .get("/users", loginData)
+        .get("/users", token)
         .then(res => {
-            console.log(res);
             dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });
         })
         .catch(err => {
@@ -57,7 +58,6 @@ export const getCelebs = () => dispatch => {
     axios
         .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
 
-
     .then(res => {
         dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
     })
@@ -65,4 +65,16 @@ export const getCelebs = () => dispatch => {
     .catch(err => {
         dispatch({ type: types.GET_CELEBS_FAILED, payload: err.res });
     });
+};
+
+export const getHighScores = () => dispatch => {
+    dispatch({ type: types.GET_HIGHSCORES });
+    axios
+        .get("https://celeb-doa-api.herokuapp.com/api/highscores/")
+        .then(res => {
+            dispatch({ type: types.GET_HIGHSCORES_SUCCESS, payload: res.data });
+        })
+        .catch(err => {
+            dispatch({ type: types.GET_HIGHSCORES_FAILED, payload: err.res });
+        });
 };
