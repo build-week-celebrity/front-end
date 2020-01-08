@@ -42,8 +42,8 @@ class QuizEasy extends Component {
     }
     return (
       <div className="Quiz">
-        {this.props.token}
-        {this.props.user}
+        {console.log(this.props.token)}
+        {console.log(this.props.user)}
         <div className="stats">
           <p> Easy </p>
           <p>
