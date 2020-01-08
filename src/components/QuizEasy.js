@@ -18,6 +18,8 @@ class QuizEasy extends Component {
     this.props.getCelebs();
   }
 
+  componentWillUnmount() {}
+
   _ToggleNext() {
     if (this.state.selectedIndex === this.props.celebrities.length - 1) return;
 

@@ -34,23 +34,7 @@ export const userLogin = (loginData, history) => dispatch => {
 
 export const userLogout = () => {
     localStorage.removeItem("token");
-
     return { type: types.LOGOUT };
-};
-
-export const displayUserList = () => dispatch => {
-    const token = localStorage.getItem("token");
-    // console.log("token in displayusers get:", token);
-    dispatch({ type: types.GET_USERS });
-
-    axiosWithAuth()
-        .get("/users", token)
-        .then(res => {
-            dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });
-        })
-        .catch(err => {
-            dispatch({ type: types.GET_USERS_FAILED, payload: err.res });
-        });
 };
 
 function shuffle(array) {
