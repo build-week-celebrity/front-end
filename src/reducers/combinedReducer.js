@@ -7,8 +7,8 @@ export const initialState = {
   email: user ? user.email : "",
   password: "",
   token: [],
-  users: [],
   transaction: false,
+  logintransaction: false,
   scorestransaction: false,
   error: null,
   score: [],
@@ -21,14 +21,37 @@ export const combinedReducer = (state = initialState, action) => {
     case types.SIGN_UP:
       return { ...state, token: action.payload };
     case types.LOGIN:
-      return { ...state, error: "", token: action.payload };
+      return {
+        ...state,
+        error: "",
+        token: action.payload,
+        logintransaction: false
+      };
+    case types.LOGIN_SUCCESS:
+      return {
+        ...state,
+
+        logintransaction: true,
+
+        error: "",
+
+        token: [...state.token, ...action.payload]
+      };
+
+    case types.LOGIN_FAILED:
+      return {
+        ...state,
+
+        logintransaction: false,
+
+        error: action.payload
+      };
     case types.LOGOUT:
       return state;
     case types.GET_CELEBS:
       return {
-        ...state,
         transaction: false,
-        celebrities: [...state.celebrities],
+        celebrities: [],
         error: ""
       };
     case types.GET_CELEBS_SUCCESS:
@@ -78,27 +101,6 @@ export const combinedReducer = (state = initialState, action) => {
       };
     case types.POST_SCORE_FORM:
       return {};
-    case types.GET_USERS:
-      return {
-        ...state,
-        transaction: false,
-        users: [...state.users],
-        error: ""
-      };
-    case types.GET_USERS_SUCCESS:
-      return {
-        ...state,
-        transaction: true,
-        users: [...state.users, ...action.payload],
-        error: ""
-      };
-
-    case types.GET_USERS_FAILED:
-      return {
-        ...state,
-        transaction: false,
-        error: action.payload
-      };
     default:
       return {
         ...state

@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import HighScores from "./HighScores";
-import PrivateRoute from "./PrivateRoute";
 import QuizEasy from "./QuizEasy";
-import UserList from "./UserList";
 import Header from "./Header";
 
 function QuizSelector() {
@@ -47,7 +45,6 @@ function QuizSelector() {
       <Route path="/Login" component={Login} />
       <Route path="/QuizEasy" component={QuizEasy} />
       <Route path="/HighScores" component={HighScores} />
-      <PrivateRoute path="/UserList" component={UserList} />
     </Router>
   );
 }
