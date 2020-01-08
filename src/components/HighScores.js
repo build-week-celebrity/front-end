@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getHighScores } from "../actions/actionCreators";
+
 class HighScores extends Component {
   constructor(props) {
     super(props);
