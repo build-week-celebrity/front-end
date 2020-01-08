@@ -17,7 +17,7 @@ class Quiz extends Component {
   componentDidMount() {
     this.props.getCelebs();
   }
-  
+
   GradeScore = (grading) => {
     var score = 0;
     console.log(this.score);
