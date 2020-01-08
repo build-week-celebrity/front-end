@@ -17,6 +17,7 @@ class QuizEasy extends Component {
   componentDidMount() {
     this.props.getCelebs();
   }
+
   _ToggleNext() {
     if (this.state.selectedIndex === this.props.celebrities.length - 1) return;
 
@@ -24,7 +25,6 @@ class QuizEasy extends Component {
       selectedIndex: prevState.selectedIndex + 1
     }));
   }
-
   _TogglePrev() {
     if (this.state.selectedIndex === 0) return;
 
@@ -45,7 +45,7 @@ class QuizEasy extends Component {
         <div className="stats">
           <p> Easy </p>
           <p>
-            Time: <Timer />
+            Time:{""} <Timer />
           </p>
           <p>
             {this.state.selectedIndex + 1}/ {this.props.celebrities.length}
