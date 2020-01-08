@@ -74,3 +74,7 @@ export const getHighScores = () => dispatch => {
             dispatch({ type: types.GET_HIGHSCORES_FAILED, payload: err.res });
         });
 };
+
+export const editUser = () => dispatch => {
+
+};

@@ -4,7 +4,7 @@ import { getCelebs } from "../actions/actionCreators";
 import Timer from "./Timer";
 import Celebrities from "./Celebrities";
 
-class QuizEasy extends Component {
+class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,7 @@ class QuizEasy extends Component {
   componentWillUnmount() {}
 
   _ToggleNext() {
-    if (this.state.selectedIndex === this.props.celebrities.length - 1) return;
+    if (this.state.selectedIndex === this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}).length - 1) return;
 
     this.setState(prevState => ({
       selectedIndex: prevState.selectedIndex + 1
@@ -42,6 +42,8 @@ class QuizEasy extends Component {
         </div>
       );
     }
+
+    this.shuffle(this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}));
     return (
       <div className="Quiz">
         <div className="stats">
@@ -50,13 +52,13 @@ class QuizEasy extends Component {
             Time:{""} <Timer />
           </p>
           <p>
-            {this.state.selectedIndex + 1}/ {this.props.celebrities.length}
+            {this.state.selectedIndex + 1}/ {this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}).length}
           </p>
         </div>
         <div className="celebQuiz">
           <Timer />
           <Celebrities
-            celebrities={this.props.celebrities[this.state.selectedIndex]}
+            celebrities={this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty})[this.state.selectedIndex]}
           />
           <div className="answerbox">
             <div className="deadBtn" onClick={this._TogglePrev}>
@@ -77,4 +79,4 @@ const mapStateToProps = state => {
     transaction: state.transaction
   };
 };
-export default connect(mapStateToProps, { getCelebs })(QuizEasy);
+export default connect(mapStateToProps, { getCelebs })(Quiz);
