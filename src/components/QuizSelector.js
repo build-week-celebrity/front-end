@@ -14,7 +14,7 @@ function QuizSelector() {
       <div className="QuizSelector">
         <Header />
         <h2> Choose A Quiz </h2>
-              <Link to={{pathname:"/quiz", state:{difficulty:"easy"}}} style={{ textDecoration: "none",}}>
+              <Link to={{pathname:"/quiz", state:{difficulty:"easy"}}} style={{ textDecoration: "none"}}>
                   <button className="QuizType">
                   Easy
                   </button>

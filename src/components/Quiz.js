@@ -51,7 +51,6 @@ class Quiz extends Component {
       );
     }
 
-    this.shuffle(this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}));
     return (
       <div className="Quiz">
         <div className="stats">
