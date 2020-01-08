@@ -18,8 +18,6 @@ class Quiz extends Component {
     this.props.getCelebs();
   }
 
-  componentWillUnmount() {}
-
   _ToggleNext() {
     if (this.state.selectedIndex === this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}).length - 1) return;
 
