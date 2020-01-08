@@ -10,8 +10,7 @@ function Header() {
       </div>
       <Link
         to="/Login"
-        style={{ color: "white", textDecoration: "none", marginTop: "1rem" }}
-      >
+        style={{ color: "white", textDecoration: "none", marginTop: "1rem" }}>
         <p>LogIn</p>
       </Link>
       <Route path="/Login" component={Login} />

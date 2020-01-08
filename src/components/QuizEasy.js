@@ -45,8 +45,7 @@ class QuizEasy extends Component {
         <div className="stats">
           <p> Easy </p>
           <p>
-            Time:
-            <Timer />
+            Time: <Timer />
           </p>
           <p>
             {this.state.selectedIndex + 1}/ {this.props.celebrities.length}
