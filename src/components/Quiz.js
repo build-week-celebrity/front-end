@@ -4,7 +4,7 @@ import { getCelebs } from "../actions/actionCreators";
 import Timer from "./Timer";
 import Celebrities from "./Celebrities";
 
-class QuizEasy extends Component {
+class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,9 +51,6 @@ class QuizEasy extends Component {
       );
     }
 
-    console.log(this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}));
-
-    console.log(this.props.location.state.difficulty);
     this.shuffle(this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}));
     return (
       <div className="Quiz">
@@ -90,4 +87,4 @@ const mapStateToProps = state => {
     transaction: state.transaction
   };
 };
-export default connect(mapStateToProps, { getCelebs })(QuizEasy);
+export default connect(mapStateToProps, { getCelebs })(Quiz);

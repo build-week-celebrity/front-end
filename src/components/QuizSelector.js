@@ -4,7 +4,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import HighScores from "./HighScores";
 import PrivateRoute from "./PrivateRoute";
-import QuizEasy from "./QuizEasy";
+import Quiz from "./Quiz";
 import UserList from "./UserList";
 import Header from "./Header";
 
@@ -14,17 +14,17 @@ function QuizSelector() {
       <div className="QuizSelector">
         <Header />
         <h2> Choose A Quiz </h2>
-              <Link to={{pathname:"/quizeasy", state:{difficulty:"easy"}}} style={{ textDecoration: "none",}}>
+              <Link to={{pathname:"/quiz", state:{difficulty:"easy"}}} style={{ textDecoration: "none",}}>
                   <button className="QuizType">
                   Easy
                   </button>
               </Link>
-            <Link to={{pathname:"/quizeasy", state:{difficulty:"medium"}}} style={{ textDecoration: "none"}}>
+            <Link to={{pathname:"/quiz", state:{difficulty:"medium"}}} style={{ textDecoration: "none"}}>
                 <button className="QuizType">
                 Medium
                 </button>
             </Link>
-          <Link to={{pathname:"/quizeasy", state:{difficulty:"hard"}}} style={{ textDecoration: "none"}}>
+          <Link to={{pathname:"/quiz", state:{difficulty:"hard"}}} style={{ textDecoration: "none"}}>
               <button className="QuizType">
                  Hard
               </button>
@@ -43,7 +43,7 @@ function QuizSelector() {
       </div>
       <Route path="/SignUp" component={SignUp} />
       <Route path="/Login" component={Login} />
-      <Route path="/QuizEasy" component={QuizEasy} />
+      <Route path="/Quiz" component={Quiz} />
       <PrivateRoute path="/HighScores" component={HighScores} />
       <PrivateRoute path="/UserList" component={UserList} />
     </Router>
