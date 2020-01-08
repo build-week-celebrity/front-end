@@ -9,7 +9,7 @@ export const userSignup = (userData, history) => dispatch => {
     .then(({ data }) => {
         dispatch({ type: types.SIGN_UP });
 
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("token", data);
 
         history.push("/QuizSelector");
     })
@@ -22,10 +22,15 @@ export const userLogin = (loginData, history) => dispatch => {
         .post("/auth/login", loginData)
         .then(
             res =>
-            dispatch({ type: types.LOGIN }) &
+            dispatch({
+                type: types.LOGIN,
+                token: res.data.token,
+                user: res.data.username
+            }) &
             localStorage.setItem("token", res.data.token) &
-            //console.log("token in state:", res.data.token) &
-            //console.log("token in localStorage:", localStorage.getItem("token")) &
+            console.log("token in state:", res.data.token) &
+            console.log("token in localStorage:", localStorage.getItem("token")) &
+            console.log(res.data) &
             history.push("/QuizSelector")
         )
 

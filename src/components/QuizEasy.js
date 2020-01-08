@@ -18,8 +18,6 @@ class QuizEasy extends Component {
     this.props.getCelebs();
   }
 
-  componentWillUnmount() {}
-
   _ToggleNext() {
     if (this.state.selectedIndex === this.props.celebrities.length - 1) return;
 
@@ -44,6 +42,8 @@ class QuizEasy extends Component {
     }
     return (
       <div className="Quiz">
+        {this.props.token}
+        {this.props.user}
         <div className="stats">
           <p> Easy </p>
           <p>
@@ -54,7 +54,6 @@ class QuizEasy extends Component {
           </p>
         </div>
         <div className="celebQuiz">
-          <Timer />
           <Celebrities
             celebrities={this.props.celebrities[this.state.selectedIndex]}
           />
@@ -74,7 +73,9 @@ class QuizEasy extends Component {
 const mapStateToProps = state => {
   return {
     celebrities: state.celebrities,
-    transaction: state.transaction
+    transaction: state.transaction,
+    token: state.token,
+    user: state.user
   };
 };
 export default connect(mapStateToProps, { getCelebs })(QuizEasy);
