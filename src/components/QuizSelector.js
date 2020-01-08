@@ -17,11 +17,7 @@ function QuizSelector() {
         <div className="QuizType">
           <Link
             to="/QuizEasy"
-            style={{
-              textDecoration: "none",
-              color: "black"
-            }}
-          >
+            style={{textDecoration: "none", color: "black"}}>
             <p>Easy</p>
           </Link>
         </div>
@@ -51,5 +47,4 @@ function QuizSelector() {
     </Router>
   );
 }
-
 export default QuizSelector;

@@ -13,7 +13,6 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
   const handleclose = () => {
     history.goBack();
   };
-
   return (
     <div className="signup-container">
       <div className="xclose" onClick={handleclose}>
@@ -66,7 +65,6 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
     </div>
   );
 };
-
 const FormikSignup = withFormik({
   mapPropsToValues({ email, username, password }) {
     return {
@@ -75,7 +73,6 @@ const FormikSignup = withFormik({
       password: password || ""
     };
   },
-
   validationSchema: Yup.object().shape({
     username: Yup.string()
       .min(2, "Minimum 2 Charecters")
@@ -89,5 +86,4 @@ const FormikSignup = withFormik({
       .required("Password is required")
   })
 })(SignUp);
-
 export default connect(state => state, actionCreators)(FormikSignup);

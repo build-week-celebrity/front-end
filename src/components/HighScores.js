@@ -17,7 +17,6 @@ class HighScores extends Component {
   componentDidMount() {
     this.props.getHighScores();
   }
-
   render() {
     if (!this.props.scorestransaction) {
       return (
