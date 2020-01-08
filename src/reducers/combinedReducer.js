@@ -77,7 +77,7 @@ export const combinedReducer = (state = initialState, action) => {
       return {
         ...state,
         scorestransaction: false,
-        highscores: [...state.highscores],
+        highscores: [],
         error: ""
       };
     case types.GET_HIGHSCORES_SUCCESS:
