@@ -19,14 +19,7 @@ class Quiz extends Component {
   }
 
   _ToggleNext() {
-    if (
-      this.state.selectedIndex ===
-      this.props.celebrities.filter(el => {
-        return el.difficulty === this.props.location.state.difficulty;
-      }).length -
-        1
-    )
-      return;
+    if (this.state.selectedIndex === this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}).length - 1)  return;
 
     this.setState(prevState => ({
       selectedIndex: prevState.selectedIndex + 1
@@ -57,17 +50,8 @@ class Quiz extends Component {
           <p>
             Time:{""} <Timer />
           </p>
-          <p>
-            {this.state.selectedIndex + 1}/{" "}
-            {
-              this.props.celebrities.filter(el => {
-                return el.difficulty === this.props.location.state.difficulty;
-              }).length
-            }
-          </p>
         </div>
         <div className="celebQuiz">
-          <Timer />
           <Celebrities
             celebrities={
               this.props.celebrities.filter(el => {
