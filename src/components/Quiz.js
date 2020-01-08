@@ -18,6 +18,8 @@ class Quiz extends Component {
     this.props.getCelebs();
   }
 
+  componentWillUnmount() {}
+
   _ToggleNext() {
     if (this.state.selectedIndex === this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}).length - 1) return;
 
@@ -32,16 +34,6 @@ class Quiz extends Component {
       selectedIndex: prevState.selectedIndex - 1
     }));
   }
-  shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      let temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-  }
-
   render() {
     if (!this.props.transaction) {
       return (

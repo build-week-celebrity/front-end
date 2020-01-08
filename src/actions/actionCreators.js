@@ -34,24 +34,19 @@ export const userLogin = (loginData, history) => dispatch => {
 
 export const userLogout = () => {
     localStorage.removeItem("token");
-
     return { type: types.LOGOUT };
 };
 
-export const displayUserList = () => dispatch => {
-    const token = localStorage.getItem("token");
-    // console.log("token in displayusers get:", token);
-    dispatch({ type: types.GET_USERS });
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
 
-    axiosWithAuth()
-        .get("/users", token)
-        .then(res => {
-            dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });
-        })
-        .catch(err => {
-            dispatch({ type: types.GET_USERS_FAILED, payload: err.res });
-        });
-};
 export const getCelebs = () => dispatch => {
     dispatch({ type: types.GET_CELEBS });
 
@@ -59,7 +54,8 @@ export const getCelebs = () => dispatch => {
         .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
 
     .then(res => {
-        dispatch({ type: types.GET_CELEBS_SUCCESS, payload: res.data });
+        const newRes = shuffle(res.data);
+        dispatch({ type: types.GET_CELEBS_SUCCESS, payload: newRes });
     })
 
     .catch(err => {
