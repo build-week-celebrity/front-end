@@ -11,15 +11,36 @@ class Quiz extends Component {
       selectedIndex: 0,
       transaction: false
     };
-    this._TogglePrev = this._TogglePrev.bind(this);
+    // this._TogglePrev = this._TogglePrev.bind(this);
     this._ToggleNext = this._ToggleNext.bind(this);
   }
   componentDidMount() {
     this.props.getCelebs();
   }
+  
+  GradeScore = (grading) => {
+    var score = 0;
+    console.log(this.score);
+    if (grading === this.props.celebrities.isAlive) {
+      console.log(this.score);
+        this.score +1
+      this._ToggleNext();
+    }
+    else {
+      this._ToggleNext();
+    }
+  }
+
 
   _ToggleNext() {
-    if (this.state.selectedIndex === this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}).length - 1) return;
+    if (
+      this.state.selectedIndex ===
+      this.props.celebrities.filter(el => {
+        return el.difficulty === this.props.location.state.difficulty;
+      }).length -
+        1
+    )
+      return;
 
     this.setState(prevState => ({
       selectedIndex: prevState.selectedIndex + 1
@@ -43,37 +64,50 @@ class Quiz extends Component {
 
     return (
       <div className="Quiz">
+        {/* {console.log(this.props.token)}
+        {console.log(this.props.user)} */}
         <div className="stats">
           <p> Easy </p>
           <p>
             Time:{""} <Timer />
           </p>
           <p>
-            {this.state.selectedIndex + 1}/ {this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty}).length}
+            {this.state.selectedIndex + 1}/{" "}
+            {
+              this.props.celebrities.filter(el => {
+                return el.difficulty === this.props.location.state.difficulty;
+              }).length
+            }
           </p>
         </div>
         <div className="celebQuiz">
-          <Timer />
           <Celebrities
-            celebrities={this.props.celebrities.filter((el) => {return el.difficulty === this.props.location.state.difficulty})[this.state.selectedIndex]}
+            celebrities={
+              this.props.celebrities.filter(el => {
+                return el.difficulty === this.props.location.state.difficulty;
+              })[this.state.selectedIndex]
+            }
           />
           <div className="answerbox">
-            <div className="deadBtn" onClick={this._TogglePrev}>
+            <button className="deadBtn" onClick={ e => {e.preventDefault(); this.GradeScore(0)}}>
               Dead
-            </div>
-            <div className="aliveBtn" onClick={this._ToggleNext}>
+            </button>
+            <button className="aliveBtn" onClick={ e => {e.preventDefault(); this.GradeScore(1)}}>
               Alive
+            </button>
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
     celebrities: state.celebrities,
-    transaction: state.transaction
+    transaction: state.transaction,
+    token: state.token,
+    user: state.user,
+    score: state.score
   };
 };
 export default connect(mapStateToProps, { getCelebs })(Quiz);

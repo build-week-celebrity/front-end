@@ -19,13 +19,14 @@ export const initialState = {
 export const combinedReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SIGN_UP:
-      return { ...state, token: action.payload };
+      return { ...state, token: action.token, user: action.user };
     case types.LOGIN:
       return {
         ...state,
         error: "",
-        token: action.payload,
-        logintransaction: false
+        token: [action.token],
+        logintransaction: false,
+        user: [action.user]
       };
     case types.LOGIN_SUCCESS:
       return {
@@ -35,7 +36,8 @@ export const combinedReducer = (state = initialState, action) => {
 
         error: "",
 
-        token: [...state.token, ...action.payload]
+        token: [...action.token],
+        user: [...action.user]
       };
 
     case types.LOGIN_FAILED:
