@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className="Header">
       <div className="Logo">
-        <h1> Dead or Alive </h1> <h2> Do you know who is ? </h2>
+        <h1> Dead or Alive </h1> <h3> Do you know who is ? </h3>
       </div>
       <Link
         to="/Login"

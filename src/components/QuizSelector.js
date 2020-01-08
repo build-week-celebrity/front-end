@@ -29,13 +29,13 @@ function QuizSelector() {
                  Hard
               </button>
           </Link>
-        <div className="QuizType">
+        <button className="QuizType">
           <p>Custom</p>
-        </div>
+        </button>
         <Link to="/HighScores" style={{ textDecoration: "none" }}>
-          <div className="QuizType" id={"HighScore"}>
+          <button className="QuizType" id={"HighScore"}>
             <p>High Scores</p>
-          </div>
+          </button>
         </Link>
         <p>
           Dig your own grave & sign up <Link to="/SignUp">Here.</Link>

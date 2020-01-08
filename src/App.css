@@ -47,6 +47,11 @@
     text-align: left;
 }
 
+.logo h3 {
+    margin: 0;
+    font-size: 0.7rem;
+}
+
 .login-link {
     margin-top: 1rem;
     color: white;
@@ -65,7 +70,7 @@
 }
 
 .landing h2 {
-    margin: 1rem 0rem;
+    margin: 1rem 2rem;
 }
 
 .landing h3 {
