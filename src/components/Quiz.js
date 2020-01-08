@@ -31,6 +31,7 @@ class Quiz extends Component {
     }
   }
 
+
   _ToggleNext() {
     if (
       this.state.selectedIndex ===

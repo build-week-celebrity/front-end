@@ -31,6 +31,7 @@
     justify-content: space-around;
     border-radius: 3rem;
     width: 100%;
+    height: 90px;
 }
 
 .Logo h1 {
@@ -47,9 +48,9 @@
     text-align: left;
 }
 
-.logo h3 {
+.Logo h3 {
     margin: 0;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 }
 
 .login-link {
@@ -71,10 +72,6 @@
 
 .landing h2 {
     margin: 1rem 2rem;
-}
-
-.landing h3 {
-    margin: 1rem 0rem;
 }
 
 .skullsimg {
@@ -138,10 +135,7 @@
 }
 
 .QuizType {
-    display: flex;
-    white-space: nowrap;
-    flex-direction: column;
-    align-content: center;
+    width: 250px;
     padding: 1rem;
     background-color: white;
     color: black;
@@ -160,6 +154,7 @@
 }
 
 .QuizType p {
+    text-align: center;
     text-decoration: none;
     padding: 0;
     margin: 0;
@@ -389,6 +384,13 @@
     text-align: center;
 }
 
+.answerbox {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
 .aliveBtn {
     display: flex;
     justify-content: space-around;
@@ -397,11 +399,11 @@
     border: 2px solid rgba(6, 241, 45, 0.582);
     font-weight: bolder;
     color: white;
-    width: 87%;
-    height: 5vh;
+    width: 99%;
+    height: 60px;
     margin: 0.5rem 0rem;
-    position: absolute;
-    bottom: 0.5vh;
+    /*position: absolute;*/
+    /*bottom: 0.5vh;*/
     font-weight: bolder;
     font-size: 2.5rem;
     border-radius: 1rem;
@@ -415,17 +417,17 @@
 
 .deadBtn {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-color: rgba(241, 6, 6, 0.61);
     border: 2px solid rgba(241, 6, 6, 0.61);
     font-weight: bolder;
     color: white;
-    width: 87%;
-    height: 5vh;
+    width: 99%;
+    height: 60px;
     margin: 0.5rem 0rem;
-    position: absolute;
-    bottom: 6.5vh;
+    /*position: absolute;*/
+    /*bottom: 6.5vh;*/
     font-weight: bolder;
     font-size: 2.5rem;
     border-radius: 1rem;
@@ -440,19 +442,28 @@
 .celebQuiz {
     background-color: black;
     color: white;
+    height: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
     margin: 0.5rem;
 }
 
 .celebcard {
+    height: 65%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
-    margin: 0.5rem;
+    margin: 1rem 0;
+}
+
+.celebcard h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
 }
 
 .stats {
@@ -461,7 +472,7 @@
     color: white;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 3vw;
@@ -472,16 +483,19 @@
 }
 
 .celebimg {
-    width: 80%;
-    height: 33vh;
-    position: absolute;
-    top: 7vh;
+    width: 440px;
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 2rem;
+    /*height: 33vh;*/
+    /*position: absolute;*/
+    /*top: 7vh;*/
 }
 
 .celebname {
     width: 90%;
-    position: absolute;
-    bottom: 14vh;
+    /*position: absolute;*/
+    /*bottom: 14vh;*/
     text-align: center;
     font-size: 1rem;
 }
