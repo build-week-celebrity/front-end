@@ -26,14 +26,12 @@ class Quiz extends Component {
         return el.difficulty === this.props.location.state.difficulty;
       })[this.state.selectedIndex].isAlive
     ) {
-      console.log("correct");
       this.setState({
         score: this.state.score + 1
       });
       this._ToggleNext();
     } else {
       this._ToggleNext();
-      console.log("incorrect");
     }
   };
 
