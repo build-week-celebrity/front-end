@@ -8,6 +8,7 @@ class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      score: 0,
       selectedIndex: 0,
       transaction: false
     };
@@ -17,19 +18,20 @@ class Quiz extends Component {
   componentDidMount() {
     this.props.getCelebs();
   }
-  
-  GradeScore = (grading) => {
-    var score = 0;
-    console.log(this.score);
-    if (grading === this.props.celebrities.isAlive) {
-      console.log(this.score);
-        this.score +1
+
+  GradeScore = grading => {
+    if (grading === this.props.celebrities[this.state.selectedIndex].isAlive) {
+      this.setState({
+        score: +1
+      });
       this._ToggleNext();
-    }
-    else {
+      console.log("correct");
+      console.log(this.state.score);
+    } else {
       this._ToggleNext();
+      console.log("incorrect");
     }
-  }
+  };
 
   _ToggleNext() {
     if (
@@ -63,8 +65,8 @@ class Quiz extends Component {
 
     return (
       <div className="Quiz">
-        {/* {console.log(this.props.token)}
-        {console.log(this.props.user)} */}
+        {console.log(this.props.token)}
+        {console.log(this.props.user)}
         <div className="stats">
           <p> Easy </p>
           <p>
@@ -88,15 +90,27 @@ class Quiz extends Component {
             }
           />
           <div className="answerbox">
-            <button className="deadBtn" onClick={ e => {e.preventDefault(); this.GradeScore(0)}}>
+            <button
+              className="deadBtn"
+              onClick={e => {
+                e.preventDefault();
+                this.GradeScore(this.state.score, 0);
+              }}
+            >
               Dead
             </button>
-            <button className="aliveBtn" onClick={ e => {e.preventDefault(); this.GradeScore(1)}}>
+            <button
+              className="aliveBtn"
+              onClick={e => {
+                e.preventDefault();
+                this.GradeScore(this.state.score, 1);
+              }}
+            >
               Alive
             </button>
-            </div>
           </div>
         </div>
+      </div>
     );
   }
 }
@@ -105,8 +119,7 @@ const mapStateToProps = state => {
     celebrities: state.celebrities,
     transaction: state.transaction,
     token: state.token,
-    user: state.user,
-    score: state.score
+    user: state.user
   };
 };
 export default connect(mapStateToProps, { getCelebs })(Quiz);
