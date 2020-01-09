@@ -19,14 +19,12 @@ class Quiz extends Component {
     this.props.getCelebs();
   }
 
-  GradeScore = grading => {
-    if (grading === this.props.celebrities[this.state.selectedIndex].isAlive) {
+  GradeScore = answer => {
+    if (answer === this.props.celebrities[this.state.selectedIndex].isAlive) {
       this.setState({
-        score: +1
+        score: this.state.score + 1
       });
       this._ToggleNext();
-      console.log("correct");
-      console.log(this.state.score);
     } else {
       this._ToggleNext();
       console.log("incorrect");
@@ -72,6 +70,7 @@ class Quiz extends Component {
           <p>
             Time:{""} <Timer />
           </p>
+          <p>Score: {this.state.score}</p>
           <p>
             {this.state.selectedIndex + 1}/{" "}
             {
