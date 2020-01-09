@@ -8,10 +8,11 @@ import Quiz from "./Quiz";
 import UserList from "./UserList";
 import Header from "./Header";
 
-function QuizSelector() {
+function QuizSelector(...props) {
   return (
     <Router>
       <div className="QuizSelector">
+      {console.log(props.user)}
         <Header />
         <h2> Choose A Quiz </h2>
         <Link

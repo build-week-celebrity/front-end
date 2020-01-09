@@ -21,14 +21,18 @@ class Timer extends Component {
       });
     }, 10);
   };
+  componentWillUnmount(){
+      // clearing the intervals
+      if(this.timer) clearInterval(this.timer)
+  }
   render() {
     const { timerTime } = this.state;
     let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
     let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
     return (
-      <div>
+      <>
         {minutes}:{seconds}
-      </div>
+      </>
     );
   }
 }

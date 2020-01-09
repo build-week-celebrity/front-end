@@ -30,6 +30,14 @@ class Quiz extends Component {
       this.setState({
         score: this.state.score + 1
       });
+      if (this.state.selectedIndex +1 ===
+          this.props.celebrities.filter(el => {
+            return el.difficulty === this.props.location.state.difficulty;
+          }).length
+      ) {
+        console.log("Game Over Loser!");
+        this.props.history.push("/SubmitScore")
+      }
       this._ToggleNext();
     } else {
       this._ToggleNext();

@@ -1,21 +1,26 @@
 import React from "react";
-import { Form, Field, withFormik } from "formik";
-import * as Yup from "yup";
-import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actionCreators from "../actions/actionCreators";
+// import { Form} from "formik";
+// import * as Yup from "yup";
+// import { NavLink } from "react-router-dom";
+// import { connect } from "react-redux";
+// import * as actionCreators from "../actions/actionCreators";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const SubmitScore = () => {
+const SubmitScore = (score, id) => {
+    function handleSubmit(score, id) {
+        axiosWithAuth()
+        .put(`/user/:${id}`,score)
+    }
+    console.log(score);
     return (
         <div>
-            <Form>
-                <div className={"head"}>
+            <form onSubmit= {handleSubmit}>
+                <div className="header">
                     <h1>Submit Score?</h1>
-                    <h2>152</h2>
+                    {/* <p>{props.score}</p> */}
                 </div>
-
                 <button>Submit</button>
-            </Form>
+            </form>
         </div>
     )
 };
