@@ -60,6 +60,8 @@ export const getCelebs = () => dispatch => {
 
     .then(res => {
         const newRes = shuffle(res.data);
+        console.log("Original Array:", res);
+        console.log("Shuffled Array:", newRes);
         dispatch({ type: types.GET_CELEBS_SUCCESS, payload: newRes });
     })
 
@@ -80,6 +82,4 @@ export const getHighScores = () => dispatch => {
         });
 };
 
-export const editUser = () => dispatch => {
-
-};
+export const editUser = () => dispatch => {};
