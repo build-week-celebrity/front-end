@@ -8,6 +8,7 @@ class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      score: 0,
       selectedIndex: 0,
       transaction: false
     };
@@ -18,18 +19,16 @@ class Quiz extends Component {
     this.props.getCelebs();
   }
   
-  GradeScore = (grading) => {
-    var score = 0;
-    console.log(this.score);
-    if (grading === this.props.celebrities.isAlive) {
-      console.log(this.score);
-        this.score +1
+  GradeScore = answer => {
+    if (answer === this.props.celebrities[this.state.selectedIndex].isAlive) {
+      this.setState({
+        score: this.state.score+1
+      });
+      this._ToggleNext();
+    } else {
       this._ToggleNext();
     }
-    else {
-      this._ToggleNext();
-    }
-  }
+  };
 
 
   _ToggleNext() {
@@ -37,9 +36,7 @@ class Quiz extends Component {
       this.state.selectedIndex ===
       this.props.celebrities.filter(el => {
         return el.difficulty === this.props.location.state.difficulty;
-      }).length -
-        1
-    )
+      }).length -1)
       return;
 
     this.setState(prevState => ({
@@ -71,6 +68,7 @@ class Quiz extends Component {
           <p>
             Time:{""} <Timer />
           </p>
+          <p>Score: {this.state.score}</p>
           <p>
             {this.state.selectedIndex + 1}/{" "}
             {
