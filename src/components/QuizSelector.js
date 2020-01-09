@@ -14,21 +14,24 @@ function QuizSelector() {
       <div className="QuizSelector">
         <Header />
         <h2> Choose A Quiz </h2>
-              <Link to={{pathname:"/quiz", state:{difficulty:"easy"}}} style={{ textDecoration: "none"}}>
-                  <button className="QuizType">
-                  Easy
-                  </button>
-              </Link>
-            <Link to={{pathname:"/quiz", state:{difficulty:"medium"}}} style={{ textDecoration: "none"}}>
-                <button className="QuizType">
-                Medium
-                </button>
-            </Link>
-          <Link to={{pathname:"/quiz", state:{difficulty:"hard"}}} style={{ textDecoration: "none"}}>
-              <button className="QuizType">
-                 Hard
-              </button>
-          </Link>
+        <Link
+          to={{ pathname: "/quiz", state: { difficulty: "easy" } }}
+          style={{ textDecoration: "none" }}
+        >
+          <button className="QuizType">Easy</button>
+        </Link>
+        <Link
+          to={{ pathname: "/quiz", state: { difficulty: "medium" } }}
+          style={{ textDecoration: "none" }}
+        >
+          <button className="QuizType">Medium</button>
+        </Link>
+        <Link
+          to={{ pathname: "/quiz", state: { difficulty: "hard" } }}
+          style={{ textDecoration: "none" }}
+        >
+          <button className="QuizType">Hard</button>
+        </Link>
         <button className="QuizType">
           <p>Custom</p>
         </button>

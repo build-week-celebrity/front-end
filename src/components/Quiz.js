@@ -20,7 +20,13 @@ class Quiz extends Component {
   }
 
   GradeScore = answer => {
-    if (answer === this.props.celebrities[this.state.selectedIndex].isAlive) {
+    if (
+      answer ===
+      this.props.celebrities.filter(el => {
+        return el.difficulty === this.props.location.state.difficulty;
+      })[this.state.selectedIndex].isAlive
+    ) {
+      console.log("correct");
       this.setState({
         score: this.state.score + 1
       });
@@ -45,13 +51,13 @@ class Quiz extends Component {
       selectedIndex: prevState.selectedIndex + 1
     }));
   }
-  _TogglePrev() {
-    if (this.state.selectedIndex === 0) return;
-
-    this.setState(prevState => ({
-      selectedIndex: prevState.selectedIndex - 1
-    }));
-  }
+  //_TogglePrev() {
+  //   if (this.state.selectedIndex === 0) return;
+  //
+  //   this.setState(prevState => ({
+  //     selectedIndex: prevState.selectedIndex - 1
+  //   }));
+  // }
   render() {
     if (!this.props.transaction) {
       return (
@@ -63,16 +69,28 @@ class Quiz extends Component {
 
     return (
       <div className="Quiz">
-        {console.log(this.props.token)}
-        {console.log(this.props.user)}
+        {console.log(
+          "Current Item Being Scored:",
+          this.props.celebrities.filter(el => {
+            return el.difficulty === this.props.location.state.difficulty;
+          })[this.state.selectedIndex].isAlive,
+          this.props.celebrities.filter(el => {
+            return el.difficulty === this.props.location.state.difficulty;
+          })[this.state.selectedIndex].name
+        )}
+
         <div className="stats">
           <p> Easy </p>
           <p>
-            Time:{""} <Timer />
+            Time: <Timer />
           </p>
           <p>Score: {this.state.score}</p>
           <p>
-            {this.state.selectedIndex + 1}/{" "}
+            {console.log(
+              "Current Quiz Selected Index:",
+              this.state.selectedIndex
+            )}
+            {this.state.selectedIndex + 1}/
             {
               this.props.celebrities.filter(el => {
                 return el.difficulty === this.props.location.state.difficulty;
@@ -93,7 +111,7 @@ class Quiz extends Component {
               className="deadBtn"
               onClick={e => {
                 e.preventDefault();
-                this.GradeScore(this.state.score, 0);
+                this.GradeScore(0);
               }}
             >
               Dead
@@ -102,7 +120,7 @@ class Quiz extends Component {
               className="aliveBtn"
               onClick={e => {
                 e.preventDefault();
-                this.GradeScore(this.state.score, 1);
+                this.GradeScore(1);
               }}
             >
               Alive
