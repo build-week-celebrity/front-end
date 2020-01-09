@@ -6,10 +6,10 @@ export const userSignup = (userData, history) => dispatch => {
     axiosWithAuth()
         .post("/auth/register", userData)
 
-    .then(({ data }) => {
+    .then(res => {
         dispatch({ type: types.SIGN_UP });
 
-        localStorage.setItem("token", data);
+        localStorage.setItem("token", res);
 
         history.push("/QuizSelector");
     })
@@ -25,14 +25,13 @@ export const userLogin = (loginData, history) => dispatch => {
             dispatch({
                 type: types.LOGIN,
                 token: res.data.token,
-                user: res.data.username
+                user: res.data.id
             }) &
             localStorage.setItem("token", res.data.token) &
-            console.log("token in state:", res.data.token) &
-            console.log("user in localStorage:", localStorage.getItem("user")) &
-            localStorage.setItem("user", res.data.user) &
-            console.log(res.data) &
-            history.push("/SubmitScore")
+            //console.log("Username in state:", res.data.username) &
+            //console.log("token in localStorage:", localStorage.getItem("token")) &
+            //console.log(res.data) &
+            history.push("/QuizSelector")
         )
 
     .catch(err => console.log(err));
@@ -57,12 +56,12 @@ export const getCelebs = () => dispatch => {
     dispatch({ type: types.GET_CELEBS });
 
     axios
-        .get("https://celeb-doa-api.herokuapp.com/api/celebrities/")
+        .get("https://celeb-doa-api.herokuapp.com/api/celebrities")
 
     .then(res => {
         const newRes = shuffle(res.data);
-        console.log("Original Array:", res);
-        console.log("Shuffled Array:", newRes);
+        // console.log("Original Array:", res.data);
+        // console.log("Shuffled Array:", newRes.data);
         dispatch({ type: types.GET_CELEBS_SUCCESS, payload: newRes });
     })
 

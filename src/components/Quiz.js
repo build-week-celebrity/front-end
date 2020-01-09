@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+
 import { connect } from "react-redux";
 import { getCelebs } from "../actions/actionCreators";
 import Timer from "./Timer";
 import Celebrities from "./Celebrities";
+import { setScore } from "../actions/actionSetScore";
 
 class Quiz extends Component {
   constructor(props) {
@@ -29,17 +31,28 @@ class Quiz extends Component {
       this.setState({
         score: this.state.score + 1
       });
-      if (this.state.selectedIndex +1 ===
-          this.props.celebrities.filter(el => {
-            return el.difficulty === this.props.location.state.difficulty;
-          }).length
+      if (
+        this.state.selectedIndex + 1 ===
+        this.props.celebrities.filter(el => {
+          return el.difficulty === this.props.location.state.difficulty;
+        }).length
       ) {
-        console.log("Game Over Loser!");
-        this.props.history.push("/SubmitScore")
+        console.log(this.state.score);
+        this.props.setScore(this.state.score);
+        this.props.history.push("/SubmitScore");
       }
       this._ToggleNext();
     } else {
-      this._ToggleNext();
+      if (
+        this.state.selectedIndex + 1 ===
+        this.props.celebrities.filter(el => {
+          return el.difficulty === this.props.location.state.difficulty;
+        }).length
+      ) {
+        console.log("Game Over Loser!");
+        //this.props.history.push("/SubmitScore");
+        //this.render(<SubmitScore />);
+      } else this._ToggleNext();
     }
   };
 
@@ -142,7 +155,8 @@ const mapStateToProps = state => {
     celebrities: state.celebrities,
     transaction: state.transaction,
     token: state.token,
-    user: state.user
+    user: state.user,
+    score: state.score
   };
 };
-export default connect(mapStateToProps, { getCelebs })(Quiz);
+export default connect(mapStateToProps, { getCelebs, setScore })(Quiz);
