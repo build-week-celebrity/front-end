@@ -6,8 +6,7 @@ class HighScores extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scorestransaction: false,
-      highscores: []
+      scorestransaction: false
     };
   }
   handleclose = () => {
@@ -30,7 +29,7 @@ class HighScores extends Component {
       <div className="ScoreList">
         <h1> High Scores: </h1>
         <div className="userscore">
-        {console.log("user in localStorage:", localStorage.getItem("user"))}
+          {console.log("user in localStorage:", localStorage.getItem("user"))}
           <ol>
             {this.props.highscores.map((score, index) => (
               <li key={index}>
