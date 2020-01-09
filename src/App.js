@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import QuizSelector from "./components/QuizSelector";
 import PrivateRoute from "./components/PrivateRoute";
+import SubmitScore from "./components/SubmitScore";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path="/Login" component={Login} />
       <Route path="/SignUp" component={SignUp} />
       <Route path="/QuizSelector" component={QuizSelector} />
+      <Route path="/SubmitScore" component={SubmitScore}/>
       <PrivateRoute path="/UserList" component={UserList} />
     </div>
   );

@@ -1,43 +1,41 @@
 import * as types from "../actions/actionTypes";
 
-const user = JSON.parse(localStorage.getItem("user"));
+// const user = JSON.parse(localStorage.getItem("user"));
 
 export const initialState = {
-  username: user ? user.username : "",
-  email: user ? user.email : "",
+  username: "",
+  email: "",
   password: "",
   token: [],
   transaction: false,
   logintransaction: false,
   scorestransaction: false,
   error: null,
-  score: [],
+  score: 0,
   celebrities: [],
-  highscores: []
+  highscores: [],
+  user:[]
 };
 
 export const combinedReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SIGN_UP:
-      return { ...state, token: action.token, user: action.user };
+      return { ...state, token: action.token, user: action.id };
     case types.LOGIN:
       return {
         ...state,
         error: "",
         token: [action.token],
         logintransaction: false,
-        user: [action.user]
+        user: [action.id]
       };
     case types.LOGIN_SUCCESS:
       return {
         ...state,
-
         logintransaction: true,
-
         error: "",
-
         token: [...action.token],
-        user: [...action.user]
+        user: [...action.id]
       };
 
     case types.LOGIN_FAILED:

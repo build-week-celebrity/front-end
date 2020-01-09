@@ -29,9 +29,10 @@ export const userLogin = (loginData, history) => dispatch => {
             }) &
             localStorage.setItem("token", res.data.token) &
             console.log("token in state:", res.data.token) &
-            console.log("token in localStorage:", localStorage.getItem("token")) &
+            console.log("user in localStorage:", localStorage.getItem("user")) &
+            localStorage.setItem("user", res.data.user) &
             console.log(res.data) &
-            history.push("/QuizSelector")
+            history.push("/SubmitScore")
         )
 
     .catch(err => console.log(err));
