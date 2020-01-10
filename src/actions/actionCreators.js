@@ -27,7 +27,7 @@ export const userLogin = (loginData, history) => dispatch => {
         localStorage.setItem("Authorization", res.data.token) &
         localStorage.setItem("userID", res.data.id) &
         localStorage.setItem("username", res.data.username) &
-        history.push("/QuizSelector")
+        history.goBack()
     )
 
     .catch(err => console.log(err));
