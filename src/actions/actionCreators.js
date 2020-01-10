@@ -8,7 +8,7 @@ export const userSignup = (userData, history) => dispatch => {
 
     .then(res => {
       dispatch({ type: types.SIGN_UP });
-      history.push("/QuizSelector");
+      history.goBack();
     })
 
     .catch(err => console.log(err));
