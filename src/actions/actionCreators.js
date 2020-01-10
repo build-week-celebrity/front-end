@@ -8,9 +8,6 @@ export const userSignup = (userData, history) => dispatch => {
 
     .then(res => {
         dispatch({ type: types.SIGN_UP });
-
-        localStorage.setItem("token", res);
-
         history.push("/QuizSelector");
     })
 
@@ -27,10 +24,15 @@ export const userLogin = (loginData, history) => dispatch => {
                 token: res.data.token,
                 user: res.data.id
             }) &
-            localStorage.setItem("token", res.data.token) &
+            localStorage.setItem("Authorization", res.data.token) &
+            localStorage.setItem("userID", res.data.id) &
+            localStorage.setItem("username", res.data.username) &
             //console.log("Username in state:", res.data.username) &
-            //console.log("token in localStorage:", localStorage.getItem("token")) &
-            //console.log(res.data) &
+            console.log(
+                "token in localStorage:",
+                localStorage.getItem("Authorization")
+            ) &
+            console.log(res.data) &
             history.push("/QuizSelector")
         )
 
@@ -81,5 +83,3 @@ export const getHighScores = () => dispatch => {
             dispatch({ type: types.GET_HIGHSCORES_FAILED, payload: err.res });
         });
 };
-
-export const editUser = () => dispatch => {};
