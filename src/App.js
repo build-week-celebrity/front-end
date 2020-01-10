@@ -35,7 +35,8 @@ const mapStateToProps = state => {
     score: 0,
     celebrities: state.celebrities,
     highscores: state.highscores,
-    user: state.user
+    user: state.user,
+    users: state.users
   };
 };
 

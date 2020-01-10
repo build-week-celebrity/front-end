@@ -1,7 +1,5 @@
 import * as types from "../actions/actionTypes";
 
-// const user = JSON.parse(localStorage.getItem("user"));
-
 export const initialState = {
     username: "",
     email: "",
@@ -10,11 +8,12 @@ export const initialState = {
     transaction: false,
     logintransaction: false,
     scorestransaction: false,
+    usertransaction: false,
     error: null,
     score: 0,
     celebrities: [],
     highscores: [],
-    user: [],
+    users: [],
     my_score: 0
 };
 
@@ -97,6 +96,32 @@ export const combinedReducer = (state = initialState, action) => {
                 ...state,
 
                 scorestransaction: false,
+
+                error: action.payload
+            };
+        case types.GET_USERS:
+            return {
+                ...state,
+                usertransaction: false,
+                users: [],
+                error: ""
+            };
+        case types.GET_USERS_SUCCESS:
+            return {
+                ...state,
+
+                usertransaction: true,
+
+                error: "",
+
+                users: [...state.users, ...action.payload]
+            };
+
+        case types.GET_USERS_FAILED:
+            return {
+                ...state,
+
+                usertransaction: false,
 
                 error: action.payload
             };
