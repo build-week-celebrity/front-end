@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Header from "./Header";
+import SignUp from "./SignUp";
+import { BrowserRouter as Route, Link } from "react-router-dom";
 class SubmitScore extends Component {
   userID = localStorage.getItem("userID");
   username = localStorage.getItem("username");
@@ -37,6 +39,8 @@ class SubmitScore extends Component {
             Dont Submit
           </button>
         </form>
+        <Link to="/SignUp">Sign Up</Link>
+        <Route path="/SignUp" component={SignUp} />
       </div>
     );
   }
