@@ -1,7 +1,5 @@
 import * as types from "../actions/actionTypes";
 
-// const user = JSON.parse(localStorage.getItem("user"));
-
 export const initialState = {
     username: "",
     email: "",

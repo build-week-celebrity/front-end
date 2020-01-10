@@ -15,8 +15,7 @@ class Quiz extends Component {
       transaction: false
     };
 
-    this.Next = this.Next.bind(this);
-    this.GradeScore = this.GradeScore.bind(this);
+    this._ToggleNext = this._ToggleNext.bind(this);
   }
   componentDidMount() {
     this.props.getCelebs();
@@ -30,21 +29,18 @@ class Quiz extends Component {
       })[this.state.selectedIndex].isAlive
     ) {
       this.setState({ score: this.state.score + 1 });
-      console.log("point added");
       if (
         this.state.selectedIndex + 1 ===
         this.props.celebrities.filter(el => {
           return el.difficulty === this.props.location.state.difficulty;
         }).length
       ) {
-        console.log("you won!");
-        console.log(this.state.score);
         setTimeout(() => {
           this.props.setScore(this.state.score);
           this.props.history.push("/SubmitScore");
         });
       } else {
-        this.Next();
+        this._ToggleNext();
       }
     } else {
       if (
@@ -55,11 +51,11 @@ class Quiz extends Component {
       ) {
         this.props.setScore(this.state.score);
         this.props.history.push("/SubmitScore");
-      } else this.Next();
+      } else this._ToggleNext();
     }
   };
 
-  Next() {
+  _ToggleNext() {
     if (
       this.state.selectedIndex ===
       this.props.celebrities.filter(el => {
@@ -90,7 +86,14 @@ class Quiz extends Component {
             Time: <Timer />
           </p>
           <p>Score: {this.state.score}</p>
-          <p></p>
+          <p>
+            {this.state.selectedIndex + 1}/
+            {
+              this.props.celebrities.filter(el => {
+                return el.difficulty === this.props.location.state.difficulty;
+              }).length
+            }
+          </p>
         </div>
         <div className="celebQuiz">
           <Celebrities
@@ -130,8 +133,8 @@ const mapStateToProps = state => {
     celebrities: state.celebrities,
     transaction: state.transaction,
     token: state.token,
-    score: state.score,
-    user: state.user
+    user: state.user,
+    score: state.score
   };
 };
 export default connect(mapStateToProps, { getCelebs, setScore })(Quiz);
