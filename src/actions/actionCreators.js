@@ -69,19 +69,31 @@ export const displayUserList = () => dispatch => {
   axiosWithAuth()
     .get("/users")
     .then(res => {
-      dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });
+      dispatch({
+        type: types.GET_USERS_SUCCESS,
+        payload: res.data
+      });
     })
     .catch(err => {
       dispatch({ type: types.GET_USERS_FAILED, payload: err.res });
     });
 };
+function scoresSorted(array) {
+  return array.sort(function(a, b) {
+    return b.score - a.score;
+  });
+}
 
 export const getHighScores = () => dispatch => {
   dispatch({ type: types.GET_HIGHSCORES });
   axiosWithAuth()
     .get("https://celeb-doa-api.herokuapp.com/api/highscores/")
     .then(res => {
-      dispatch({ type: types.GET_HIGHSCORES_SUCCESS, payload: res.data });
+      const newlist = scoresSorted(res.data);
+      dispatch({
+        type: types.GET_HIGHSCORES_SUCCESS,
+        payload: newlist
+      });
     })
     .catch(err => {
       dispatch({ type: types.GET_HIGHSCORES_FAILED, payload: err.res });

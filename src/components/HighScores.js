@@ -9,9 +9,9 @@ class HighScores extends Component {
       scorestransaction: false
     };
   }
+
   handleclose = () => {
     this.props.history.goBack();
-    this.setState((this.highscores = []));
   };
   componentDidMount() {
     this.props.getHighScores();
