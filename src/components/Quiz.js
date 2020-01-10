@@ -14,7 +14,7 @@ class Quiz extends Component {
       selectedIndex: 0,
       transaction: false
     };
-    // this._TogglePrev = this._TogglePrev.bind(this);
+
     this._ToggleNext = this._ToggleNext.bind(this);
   }
   componentDidMount() {
@@ -54,7 +54,6 @@ class Quiz extends Component {
         this.props.setScore(this.state.score);
         console.log(this.state.score);
         this.props.history.push("/SubmitScore");
-        //this.render(<SubmitScore />);
       } else this._ToggleNext();
     }
   };
@@ -73,13 +72,6 @@ class Quiz extends Component {
       selectedIndex: prevState.selectedIndex + 1
     }));
   }
-  //_TogglePrev() {
-  //   if (this.state.selectedIndex === 0) return;
-  //
-  //   this.setState(prevState => ({
-  //     selectedIndex: prevState.selectedIndex - 1
-  //   }));
-  // }
   render() {
     if (!this.props.transaction) {
       return (
