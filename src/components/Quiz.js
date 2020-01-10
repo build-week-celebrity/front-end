@@ -38,8 +38,10 @@ class Quiz extends Component {
       ) {
         console.log("you won!");
         console.log(this.state.score);
-        this.props.setScore(this.state.score);
-        this.props.history.push("/SubmitScore");
+        setTimeout(() => {
+          this.props.setScore(this.state.score);
+          this.props.history.push("/SubmitScore");
+        })
       } else {
         this._ToggleNext();
       }
