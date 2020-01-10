@@ -35,7 +35,7 @@ export const combinedReducer = (state = initialState, action) => {
                 ...state,
                 logintransaction: true,
                 error: "",
-                token: [...action.token],
+                token: [...action.payload],
                 user: [...action.payload]
             };
 
