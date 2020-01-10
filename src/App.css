@@ -458,7 +458,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
-    margin: 1rem 0;
+    margin: 2rem 0;
 }
 
 .celebcard h2 {
@@ -498,4 +498,40 @@
     /*bottom: 14vh;*/
     text-align: center;
     font-size: 1rem;
+}
+
+.scoreSubmitContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    position: absolute;
+    width: 500px;
+    border-radius: 2rem;
+    height: 750px;
+    padding: 1rem;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.submitButton {
+    width: 250px;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+    margin: 0.5rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    background-color: black;
+    color: white;
+
 }

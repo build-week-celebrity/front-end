@@ -37,8 +37,12 @@ class Quiz extends Component {
           return el.difficulty === this.props.location.state.difficulty;
         }).length
       ) {
-        this.props.setScore(this.state.score);
-        this.props.history.push("/SubmitScore");
+        console.log("you won!");
+        console.log(this.state.score);
+        setTimeout(() => {
+          this.props.setScore(this.state.score);
+          this.props.history.push("/SubmitScore");
+        });
       } else {
         this.Next();
       }
