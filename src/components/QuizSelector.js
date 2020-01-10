@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import HighScores from "./HighScores";
-import PrivateRoute from "./PrivateRoute";
 import Quiz from "./Quiz";
-import UserList from "./UserList";
 import Header from "./Header";
 import SubmitScore from "./SubmitScore";
 
