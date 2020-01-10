@@ -483,10 +483,10 @@
 }
 
 .celebimg {
-    width: 440px;
-    height: 400px;
+    width: 400px;
+    height: 350px;
     margin-top: 20px;
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
     /*height: 33vh;*/
     /*position: absolute;*/
     /*top: 7vh;*/
@@ -502,6 +502,7 @@
 
 .scoreSubmitContainer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: black;
@@ -533,5 +534,4 @@
 .submitButton:hover {
     background-color: black;
     color: white;
-
 }

@@ -8,9 +8,7 @@ function Header() {
       <div className="Logo">
         <h1> Dead or Alive </h1> <h3> Do you know who is ? </h3>
       </div>
-      <Link
-        to="/Login"
-        style={{ color: "white", textDecoration: "none", marginTop: "1rem" }}>
+      <Link to="/Login" style={{ color: "white", textDecoration: "none" }}>
         <p>LogIn</p>
       </Link>
       <Route path="/Login" component={Login} />
