@@ -15,7 +15,8 @@ class Quiz extends Component {
       transaction: false
     };
 
-    this._ToggleNext = this._ToggleNext.bind(this);
+    this.Next = this.Next.bind(this);
+    this.GradeScore = this.GradeScore.bind(this);
   }
   componentDidMount() {
     this.props.getCelebs();
@@ -36,12 +37,10 @@ class Quiz extends Component {
           return el.difficulty === this.props.location.state.difficulty;
         }).length
       ) {
-        console.log("you won!");
-        console.log(this.state.score);
         this.props.setScore(this.state.score);
         this.props.history.push("/SubmitScore");
       } else {
-        this._ToggleNext();
+        this.Next();
       }
     } else {
       if (
@@ -50,15 +49,13 @@ class Quiz extends Component {
           return el.difficulty === this.props.location.state.difficulty;
         }).length
       ) {
-        console.log("Game Over Loser!");
         this.props.setScore(this.state.score);
-        console.log(this.state.score);
         this.props.history.push("/SubmitScore");
-      } else this._ToggleNext();
+      } else this.Next();
     }
   };
 
-  _ToggleNext() {
+  Next() {
     if (
       this.state.selectedIndex ===
       this.props.celebrities.filter(el => {
@@ -83,34 +80,13 @@ class Quiz extends Component {
 
     return (
       <div className="Quiz">
-        {console.log(
-          "Current Item Being Scored:",
-          this.props.celebrities.filter(el => {
-            return el.difficulty === this.props.location.state.difficulty;
-          })[this.state.selectedIndex].isAlive,
-          this.props.celebrities.filter(el => {
-            return el.difficulty === this.props.location.state.difficulty;
-          })[this.state.selectedIndex].name
-        )}
-
         <div className="stats">
           <p> Easy </p>
           <p>
             Time: <Timer />
           </p>
           <p>Score: {this.state.score}</p>
-          <p>
-            {console.log(
-              "Current Quiz Selected Index:",
-              this.state.selectedIndex
-            )}
-            {this.state.selectedIndex + 1}/
-            {
-              this.props.celebrities.filter(el => {
-                return el.difficulty === this.props.location.state.difficulty;
-              }).length
-            }
-          </p>
+          <p></p>
         </div>
         <div className="celebQuiz">
           <Celebrities
@@ -150,8 +126,8 @@ const mapStateToProps = state => {
     celebrities: state.celebrities,
     transaction: state.transaction,
     token: state.token,
-    user: state.user,
-    score: state.score
+    score: state.score,
+    user: state.user
   };
 };
 export default connect(mapStateToProps, { getCelebs, setScore })(Quiz);

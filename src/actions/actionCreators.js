@@ -27,12 +27,6 @@ export const userLogin = (loginData, history) => dispatch => {
             localStorage.setItem("Authorization", res.data.token) &
             localStorage.setItem("userID", res.data.id) &
             localStorage.setItem("username", res.data.username) &
-            //console.log("Username in state:", res.data.username) &
-            console.log(
-                "token in localStorage:",
-                localStorage.getItem("Authorization")
-            ) &
-            console.log(res.data) &
             history.push("/QuizSelector")
         )
 
@@ -62,8 +56,6 @@ export const getCelebs = () => dispatch => {
 
     .then(res => {
         const newRes = shuffle(res.data);
-        // console.log("Original Array:", res.data);
-        // console.log("Shuffled Array:", newRes.data);
         dispatch({ type: types.GET_CELEBS_SUCCESS, payload: newRes });
     })
 
@@ -72,9 +64,21 @@ export const getCelebs = () => dispatch => {
     });
 };
 
+export const displayUserList = () => dispatch => {
+    dispatch({ type: types.GET_USERS });
+    axiosWithAuth()
+        .get("/users")
+        .then(res => {
+            dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });
+        })
+        .catch(err => {
+            dispatch({ type: types.GET_USERS_FAILED, payload: err.res });
+        });
+};
+
 export const getHighScores = () => dispatch => {
     dispatch({ type: types.GET_HIGHSCORES });
-    axios
+    axiosWithAuth()
         .get("https://celeb-doa-api.herokuapp.com/api/highscores/")
         .then(res => {
             dispatch({ type: types.GET_HIGHSCORES_SUCCESS, payload: res.data });
