@@ -10,17 +10,25 @@ class SubmitScore extends Component {
   //componentDidMount() {
   //     };
 
-  handleSubmit() {
-    axiosWithAuth().put(`/user/:${this.props.user}`, this.props.my_score);
+  handleSubmit(score) {
+    console.log("Sending Score:", score);
+    axiosWithAuth()
+      .put(`/users/:1`, score)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   }
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        {console.log(this.props.user)}
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            this.handleSubmit(this.props.my_score);
+          }}
+        >
           <div className="header">
             <h1> Submit Score ? </h1> <p>Score:{this.props.my_score}</p>
-            {console.log(this.props.my_score)}
-            {console.log(this.props.celebrities)}
           </div>
           <button> Submit </button>
         </form>

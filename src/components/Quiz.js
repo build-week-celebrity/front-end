@@ -28,20 +28,21 @@ class Quiz extends Component {
         return el.difficulty === this.props.location.state.difficulty;
       })[this.state.selectedIndex].isAlive
     ) {
-      this.setState({
-        score: this.state.score + 1
-      });
+      this.setState({ score: this.state.score + 1 });
+      console.log("point added");
       if (
         this.state.selectedIndex + 1 ===
         this.props.celebrities.filter(el => {
           return el.difficulty === this.props.location.state.difficulty;
         }).length
       ) {
+        console.log("you won!");
         console.log(this.state.score);
         this.props.setScore(this.state.score);
         this.props.history.push("/SubmitScore");
+      } else {
+        this._ToggleNext();
       }
-      this._ToggleNext();
     } else {
       if (
         this.state.selectedIndex + 1 ===
@@ -50,7 +51,9 @@ class Quiz extends Component {
         }).length
       ) {
         console.log("Game Over Loser!");
-        //this.props.history.push("/SubmitScore");
+        this.props.setScore(this.state.score);
+        console.log(this.state.score);
+        this.props.history.push("/SubmitScore");
         //this.render(<SubmitScore />);
       } else this._ToggleNext();
     }
