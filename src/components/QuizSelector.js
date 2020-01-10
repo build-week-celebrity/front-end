@@ -44,16 +44,12 @@ function QuizSelector() {
         <p>
           Dig your own grave & sign up <Link to="/SignUp">Here.</Link>
         </p>
-        <Link to="/UserList" style={{ textDecoration: "none" }}>
-          <p>.</p>
-        </Link>
       </div>
       <Route path="/SignUp" component={SignUp} />
       <Route path="/Login" component={Login} />
       <Route path="/Quiz" component={Quiz} />
       <Route path="/SubmitScore" component={SubmitScore} />
       <Route path="/HighScores" component={HighScores} />
-      <PrivateRoute path="/UserList" component={UserList} />
     </Router>
   );
 }
