@@ -39,7 +39,9 @@ class SubmitScore extends Component {
             Dont Submit
           </button>
         </form>
-        <Link to="/SignUp">Sign Up</Link>
+        <Link to="/SignUp">
+          <button className="submitButton">Sign Up</button>
+        </Link>
         <Route path="/SignUp" component={SignUp} />
       </div>
     );
