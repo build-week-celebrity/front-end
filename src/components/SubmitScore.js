@@ -26,7 +26,7 @@ class SubmitScore extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="scoreSubmitContainer">
         {console.log(this.props.user)}
         <form
           onSubmit={e => {
@@ -35,9 +35,9 @@ class SubmitScore extends Component {
           }}
         >
           <div className="header">
-            <h1> Submit Score ? </h1> <p>Score:{this.props.my_score}</p>
+            <h1> Submit Score? </h1> <p>Score:{this.props.my_score}</p>
           </div>
-          <button> Submit </button>
+          <button className="submitButton"> Submit </button>
         </form>
       </div>
     );
