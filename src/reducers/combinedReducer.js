@@ -9,12 +9,12 @@ export const initialState = {
     logintransaction: false,
     scorestransaction: false,
     usertransaction: false,
+    putscoretransaction: false,
     error: null,
-    score: 0,
     celebrities: [],
     highscores: [],
     users: [],
-    my_score: 0
+    score: 0
 };
 
 export const combinedReducer = (state = initialState, action) => {
@@ -125,12 +125,36 @@ export const combinedReducer = (state = initialState, action) => {
 
                 error: action.payload
             };
-        case types.POST_SCORE_FORM:
-            return {};
+        case types.PUT_SCORE:
+            return {
+                ...state,
+                putscoretransaction: false,
+                score: [state.score],
+                error: ""
+            };
+        case types.PUT_SCORE_SUCCESS:
+            return {
+                ...state,
+
+                putscoretransaction: true,
+
+                error: "",
+
+                score: [...state.score]
+            };
+
+        case types.PUT_SCORE_FAILED:
+            return {
+                ...state,
+
+                putscoretransaction: false,
+
+                error: action.payload
+            };
 
         case "SET_SCORE":
             return {
-                my_score: action.payload
+                score: action.payload
             };
 
         default:
