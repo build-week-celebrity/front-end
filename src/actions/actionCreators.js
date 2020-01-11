@@ -21,8 +21,7 @@ export const userLogin = (loginData, history) => dispatch => {
       res =>
         dispatch({
           type: types.LOGIN,
-          token: res.data.token,
-          user: res.data.id
+          payload: res.token
         }) &
         localStorage.setItem("Authorization", res.data.token) &
         localStorage.setItem("userID", res.data.id) &
@@ -83,6 +82,27 @@ function scoresSorted(array) {
     return b.score - a.score;
   });
 }
+const userID = localStorage.getItem("userID"),
+  username = localStorage.getItem("username");
+export const putScore = score => dispatch => {
+  dispatch({ type: types.PUT_SCORE });
+  axiosWithAuth()
+    .put(`/users/${userID}`, {
+      username: username,
+      score: score,
+      id: userID
+    })
+    .then(res => {
+      console.log("put:", res);
+      dispatch({
+        type: types.PUT_SCORE_SUCCESS,
+        payload: res
+      });
+    })
+    .catch(err => {
+      dispatch({ type: types.PUT_SCORE_FAILED, payload: err.res });
+    });
+};
 
 export const getHighScores = () => dispatch => {
   dispatch({ type: types.GET_HIGHSCORES });
