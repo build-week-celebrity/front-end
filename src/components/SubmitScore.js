@@ -11,7 +11,6 @@ class SubmitScore extends Component {
   };
   handleSubmit() {
     this.props.putScore(this.props.score);
-    console.log(this.props.score, "submitted Score");
     this.handleclose();
   }
   render() {
@@ -30,7 +29,7 @@ class SubmitScore extends Component {
         >
           <div className="header">
             <h1> Game Over!</h1>
-            <h1> Submit Score ? </h1> <p>Score:{this.props.score}</p>
+            <h1> Submit Score ? </h1> <p>Score: {this.props.score}</p>
           </div>
           <button className={"submitButton"}> Submit </button>
           <button className="submitButton" onClick={this.handleclose}>

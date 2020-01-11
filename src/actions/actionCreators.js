@@ -93,7 +93,6 @@ export const putScore = score => dispatch => {
       id: userID
     })
     .then(res => {
-      console.log("put:", res);
       dispatch({
         type: types.PUT_SCORE_SUCCESS,
         payload: res

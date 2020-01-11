@@ -174,11 +174,11 @@
     flex-direction: column;
     color: black;
     background-color: white;
-    top: 30vh;
-    left: 40vw;
+    top: 20vh;
+    left: 40.5vw;
     position: absolute;
-    width: 15vw;
-    height: 20vh;
+    width: 200px;
+    height: 200px;
     padding: 1rem;
     border-radius: 2rem;
     border: 2px solid black;
@@ -217,10 +217,10 @@
     top: 20vh;
     left: 37vw;
     position: absolute;
-    width: 20vw;
+    width: 250px;
     padding: 2rem;
     border-radius: 2rem;
-    height: 30vh;
+    height: 275px;
     border: 2px solid black;
     box-shadow: grey 3px 3px 2px 2px;
 }
@@ -251,7 +251,6 @@
 
 .signup-field {
     margin-top: 0.5rem;
-    width: 20vh;
 }
 
 .AdminConsole {
