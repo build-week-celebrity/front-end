@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Header from "./Header";
+import Login from "./Login";
 import SignUp from "./SignUp";
 import { BrowserRouter as Route, Link } from "react-router-dom";
 import { putScore } from "../actions/actionCreators";
@@ -17,7 +17,11 @@ class SubmitScore extends Component {
   render() {
     return (
       <div className={"scoreSubmitContainer"}>
-        <Header />
+        <div className="Header">
+          <div className="Logo">
+            <h1> Dead or Alive </h1> <h3> Do you know who is ? </h3>
+          </div>
+        </div>
         <form
           onSubmit={e => {
             e.preventDefault();
@@ -30,12 +34,16 @@ class SubmitScore extends Component {
           </div>
           <button className={"submitButton"}> Submit </button>
           <button className="submitButton" onClick={this.handleclose}>
-            Dont Submit
+            Play Again
           </button>
         </form>
+        <Link to="/Login" style={{ color: "white", textDecoration: "none" }}>
+          <button className="submitButton">Log-in</button>
+        </Link>
         <Link to="/SignUp">
           <button className="submitButton">Sign Up</button>
         </Link>
+        <Route path="/Login" component={Login} />
         <Route path="/SignUp" component={SignUp} />
       </div>
     );
